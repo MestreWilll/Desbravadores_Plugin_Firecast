@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group>   
+
+  <!-- começa aqui o layout e scrollBox -->
+  
+  <layout name="Massacote" align="client" visible="false">
+   <scrollBox align="client">
+
+
+
+   <button text="ANTIGO" fontStyle="bold" width="61" height="23" fontColor="yellow" left="173">
+     <event name="onClick">
+     self.Massacote.visible = false;
+     self.Pag3.visible = true;
+      </event>
+       </button>
+
+<image hitTest="true" cursor="handPoint" left="548" top="0" width="100" height="100"  src="/Imagens/voltar.png">
+
+        <event name="onClick">
+             self.fichaPrincipal.visible = true;
+             self.Pag3.visible = false;
+             self.Massacote.visible = false;
+		</event>
+		 </image>   
+
+
+
+
+ <!-- Botão de inserir novo item à lista -->
+        
+                <button text="Adicione seu Mascote" fontStyle="bold" 
+                fontColor="black" width="166" height="23" left="0" top="0">
+                        <event name="onClick">
+                                -- Usuário clicou no botão de criar novo item.
+                                -- Vamos inserir um novo item no nosso recordList                              
+                                self.rclMascote:append();
+                        </event>
+                </button>
+            
+
+        <!-- recordList, representando a lista -->
+        
+        <recordList name="rclMascote" field="Mascote" templateForm="frmMassacote"
+        left="0" top="25" width="535" height="800" selectable="true">                              
+
+                <event name="onSelect">
+                        --[[
+                        Este evento é chamado quando o usuário selecionar/deselecionar itens da lista. Quando o usuário selecionar, vamos fazer nosso dataScopeBox (e todas as tag dentro dele) salvar e carregar dados no   objeto Nodo (NodeDatabase) do item selecionado.
+
+                  --]]                      
+                  local node = self.rclMascote.selectedNode;  
+                         self.boxDetalhesDoItem33.node = node;                       
+                  -- a caixa de detalhe só ficará visível se houver item selecionado
+                          self.boxDetalhesDoItem33.visible = (node ~= nil);
+                </event>
+        </recordList>  
+           
+        <!-- dataScopeBox representando a nossa caixa de detalhes -->  
+        <dataScopeBox name="boxDetalhesDoItem33" visible="true" align="right" 
+                     width="400" margins="{left=4, right=4}">
+                <!-- Faça um layout "bonito" para sua caixa de detalhes =). Utilize a propriedade "field" nas tags aqui dentro   -->   
+        
+  
+        </dataScopeBox>
+                 </scrollBox>
+                 </layout>
+
+
+   <layout name="Pag3" align="client" visible="false">
+   <scrollBox align="client">
+
+    <image hitTest="true" cursor="handPoint" left="500" top="12" width="100" height="100"  src="/Imagens/voltar.png">
+
+        <event name="onClick">
+             self.fichaPrincipal.visible = true;
+             self.Pag3.visible = false;
+		</event>
+		 </image>         
+
+            
+				
+	    <!-- Começando aba para habilidades dos mascotes -->
+        <layout top="715" width="475" height="300">
+        <recordList name="rclLista" align="client" field="itens" 
+                   templateForm="frmItem"/>
+        </layout> 
+        <button left="0" width="150" height="35" top="680" text="Criar habilidade nova">
+                <event name="onClick">
+                       self.rclLista:append();
+                </event>
+        </button> 
+		
+		<!-- Aqui começa as imagens e templates -->				
+		        <image field="imagemDoPersonagem" editable="true" style="autoFit" 
+              left="20" top="20" width="200" height="200" />
+        <textEditor left="10" top="550" width="455" height="120" field="Mascote11" text="ESCREVA AQUI: ANOTAÇõES OU COISAS IMPORTANTES SOBRE O SEU MASCOTE\n\n --A P A G U E      E S S A       M E N S A G E M-- "/>
+        <script>
+                local function exibirMensagem()
+                        local msg = "";
+                       
+                        for i = 1, 5, 1 do
+                                msg = msg .. "Linha " .. i .. "\n";
+                        end;
+                       
+                        showMessage("Aqui fica a area de anotação do seu mascote. Como visto, um pouco acima está seus atributos");
+                end;
+        </script>
+
+        <button text="?" width="35" left="390" top="525" onClick="exibirMensagem();"/>
+			  
+        <script>
+                local function exibirMensagem2()
+                        local msg = "";
+                       
+                        for i = 1, 5, 1 do
+                                msg = msg .. "Linha " .. i .. "\n";
+                        end;
+                       
+                        showMessage("Aqui você pode criar uma habilidade para o seu mascote, de acordo com sua raça, talvez ele irá precisar treinar sua habildade para pode executa-la, -Qualquer coisa fala com o mestre Ó mané-");
+                end;
+        </script>
+
+        <button text="?" width="35" left="395" top="680" onClick="exibirMensagem2();"/>		
+<!-- TAG 1 -->		
+        <layout top="230" width="475" height="300">    			
+        <template name="MinhaTag">
+                <label text=" $(titulo)" align="top" horzTextAlign="center"/>
+                <edit field="$(conteudo)" align="top" horzTextAlign="center"/>
+        </template> 
+        <MinhaTag titulo="Força" conteudo="1"/>
+        <MinhaTag titulo="Habilidade" conteudo="2"/>
+        <MinhaTag titulo="Inteligência" conteudo="3"/> 
+        <MinhaTag titulo="Vigor" conteudo="4"/> 
+        <MinhaTag titulo="Percepção" conteudo="5"/> 
+        <MinhaTag titulo="Sorte" conteudo="6"/> 		
+        </layout>    
+<!-- TAG 2 -->
+        <layout top="10" left="224" width="250" height="310">    			
+        <template name="MinhaTag2">
+                <label text=" $(titulo)" align="top" horzTextAlign="center"/>
+                <edit field="$(conteudo)" align="top" horzTextAlign="center"/>
+        </template> 
+        <MinhaTag2 titulo="Nome" conteudo="7"/>
+        <MinhaTag2 titulo="Idade" conteudo="8"/>
+        <MinhaTag2 titulo="Raça" conteudo="9"/> 
+        <MinhaTag2 titulo="Nivel" conteudo="10"/> 	
+          </layout>
+            </scrollBox>
+         </layout>
+          
+</group>

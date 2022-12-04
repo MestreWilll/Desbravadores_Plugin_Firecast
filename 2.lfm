@@ -1,0 +1,567 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="frmDesbravadores22_svg" align="client"  margins="{top=-100}">
+    <scrollBox align="client">
+        <rectangle width="1263" height="893" color="white">
+            <image left="0" top="0" width="1263" height="893" src="images/2.png" style="stretch" optimize="true" compilerOrder="0"/>
+
+            <layout left="75" top="146" width="235" height="48" compilerOrder="1">
+                <edit name="P1" visible="false" transparent="true" fontSize="18" fontColor="black" fontStyle="bold" horzTextAlign="leading" vertTextAlign="center" left="0" top="0" width="235" height="49" field="Text1" compilerOrder="2"/>
+            </layout>
+
+            <layout left="75" top="206" width="235" height="48" compilerOrder="5">
+                <edit name="P2" visible="false" transparent="true" fontSize="18" fontColor="black" fontStyle="bold" horzTextAlign="leading" vertTextAlign="center" left="0" top="0" width="235" height="49" field="_3" compilerOrder="6"/>
+            </layout>
+
+            <layout left="74" top="264" width="235" height="48" compilerOrder="9">
+                <edit name="P3" visible="false" transparent="true" fontSize="18" fontColor="black" fontStyle="bold" horzTextAlign="leading" vertTextAlign="center" left="0" top="0" width="235" height="49" field="_5" compilerOrder="10"/>
+            </layout>
+
+            <layout left="75" top="323" width="235" height="48" compilerOrder="13">
+                <edit name="P4" visible="false" transparent="true" fontSize="18" fontColor="black" fontStyle="bold" horzTextAlign="leading" vertTextAlign="center" left="0" top="0" width="235" height="49" field="_7" compilerOrder="14"/>
+            </layout>
+
+            <layout left="76" top="382" width="235" height="48" compilerOrder="17">
+                <edit name="P5" visible="false" transparent="true" fontSize="18" fontColor="black" fontStyle="bold" horzTextAlign="leading" vertTextAlign="center" left="0" top="0" width="235" height="49" field="_9" compilerOrder="18"/>
+            </layout>
+
+            <layout left="76" top="441" width="235" height="48" compilerOrder="21">
+                <edit name="P6" visible="false" transparent="true" fontSize="18" fontColor="black" fontStyle="bold" horzTextAlign="leading" vertTextAlign="center" left="0" top="0" width="235" height="49" field="_11" compilerOrder="22"/>
+            </layout>
+
+            <layout left="75" top="500" width="235" height="48" compilerOrder="25">
+                <edit name="P7" visible="false" transparent="true" fontSize="18" fontColor="black" fontStyle="bold" horzTextAlign="leading" vertTextAlign="center" left="0" top="0" width="235" height="49" field="_13" compilerOrder="26"/>
+            </layout>
+
+            <layout left="76" top="558" width="235" height="48" compilerOrder="33">
+                <edit name="P8" visible="false" transparent="true" fontSize="18" fontColor="black" fontStyle="bold" horzTextAlign="leading" vertTextAlign="center" left="0" top="0" width="235" height="49" field="_15" compilerOrder="34"/>
+            </layout>
+
+            <layout left="324" top="146" width="235" height="48" compilerOrder="3">
+                <edit name="P9" visible="false" transparent="true" fontSize="18" fontColor="black" fontStyle="bold" horzTextAlign="leading" vertTextAlign="center" left="0" top="0" width="235" height="49" field="_2" compilerOrder="4"/>
+            </layout>
+
+             <layout left="325" top="206" width="235" height="48" compilerOrder="7">
+                <edit name="P10" visible="false" transparent="true" fontSize="18" fontColor="black" fontStyle="bold" horzTextAlign="leading" vertTextAlign="center" left="0" top="0" width="235" height="49" field="_4" compilerOrder="8"/>
+            </layout> 
+
+            <layout left="323" top="263" width="235" height="48" compilerOrder="11">
+                <edit name="P11" visible="false" transparent="true" fontSize="18" fontColor="black" fontStyle="bold" horzTextAlign="leading" vertTextAlign="center" left="0" top="0" width="235" height="49" field="_6" compilerOrder="12"/>
+            </layout>  
+
+            <layout left="324" top="323" width="235" height="48" compilerOrder="15">
+                <edit name="P12" visible="false" transparent="true" fontSize="18" fontColor="black" fontStyle="bold" horzTextAlign="leading" vertTextAlign="center" left="0" top="0" width="235" height="49" field="_8" compilerOrder="16"/>
+            </layout>                    
+
+            <layout left="324" top="382" width="235" height="48" compilerOrder="19">
+                <edit name="P13" visible="false" transparent="true" fontSize="18" fontColor="black" fontStyle="bold" horzTextAlign="leading" vertTextAlign="center" left="0" top="0" width="235" height="49" field="_10" compilerOrder="20"/>
+            </layout>
+
+            <layout left="325" top="441" width="235" height="48" compilerOrder="23">
+                <edit name="P14" visible="false" transparent="true" fontSize="18" fontColor="black" fontStyle="bold" horzTextAlign="leading" vertTextAlign="center" left="0" top="0" width="235" height="49" field="_12" compilerOrder="24"/>
+            </layout>
+
+            <layout left="324" top="499" width="235" height="48" compilerOrder="27">
+                <edit name="P15" visible="false" transparent="true" fontSize="18" fontColor="black" fontStyle="bold" horzTextAlign="leading" vertTextAlign="center" left="0" top="0" width="235" height="49" field="_14" compilerOrder="28"/>
+            </layout>
+
+            <layout left="325" top="558" width="235" height="48" compilerOrder="35">
+                <edit name="P16" visible="false" transparent="true" fontSize="18" fontColor="black" fontStyle="bold" horzTextAlign="leading" vertTextAlign="center" left="0" top="0" width="235" height="49" field="Text2" compilerOrder="36"/>
+            </layout>
+
+            <layout left="664" top="535" width="235" height="48" compilerOrder="29">
+                <edit name="P17" visible="false" transparent="true" fontSize="18" fontColor="black" fontStyle="bold" horzTextAlign="leading" vertTextAlign="center" left="0" top="0" width="235" height="49" field="_17" compilerOrder="30"/>
+            </layout>
+
+            <layout left="664" top="595" width="235" height="48" compilerOrder="37">
+                <edit name="P18" visible="false" transparent="true" fontSize="18" fontColor="black" fontStyle="bold" horzTextAlign="leading" vertTextAlign="center" left="0" top="0" width="235" height="49" field="_19" compilerOrder="38"/>
+            </layout>
+
+            <layout left="664" top="653" width="235" height="48" compilerOrder="41">
+                <edit name="P19" visible="false" transparent="true" fontSize="18" fontColor="black" fontStyle="bold" horzTextAlign="leading" vertTextAlign="center" left="0" top="0" width="235" height="49" field="_21" compilerOrder="42"/>
+            </layout>
+
+            <layout left="662" top="712" width="235" height="48" compilerOrder="45">
+                <edit name="P20" visible="false" transparent="true" fontSize="18" fontColor="black" fontStyle="bold" horzTextAlign="leading" vertTextAlign="center" left="0" top="0" width="235" height="49" field="_23" compilerOrder="46"/>
+            </layout>            
+
+            <layout left="664" top="771" width="235" height="48" compilerOrder="49">
+                <edit name="P21" visible="false" transparent="true" fontSize="18" fontColor="black" fontStyle="bold" horzTextAlign="leading" vertTextAlign="center" left="0" top="0" width="235" height="49" field="_25" compilerOrder="50"/>
+            </layout>
+
+            <layout left="913" top="535" width="235" height="48" compilerOrder="31">
+                <edit name="P22" visible="false" transparent="true" fontSize="18" fontColor="black" fontStyle="bold" horzTextAlign="leading" vertTextAlign="center" left="0" top="0" width="235" height="49" field="_18" compilerOrder="32"/>
+            </layout>
+
+            <layout left="913" top="594" width="235" height="48" compilerOrder="39">
+                <edit name="P23" visible="false" transparent="true" fontSize="18" fontColor="black" fontStyle="bold" horzTextAlign="leading" vertTextAlign="center" left="0" top="0" width="235" height="49" field="_20" compilerOrder="40"/>
+            </layout>
+
+            <layout left="912" top="654" width="235" height="48" compilerOrder="43">
+                <edit name="P24" visible="false" transparent="true" fontSize="18" fontColor="black" fontStyle="bold" horzTextAlign="leading" vertTextAlign="center" left="0" top="0" width="235" height="49" field="_22" compilerOrder="44"/>
+            </layout>
+
+             <layout left="912" top="712" width="235" height="48" compilerOrder="47">
+                <edit name="P25" visible="false" transparent="true" fontSize="18" fontColor="black" fontStyle="bold" horzTextAlign="leading" vertTextAlign="center" left="0" top="0" width="235" height="49" field="_24" compilerOrder="48"/>
+            </layout>           
+
+            <layout left="912" top="771" width="235" height="48" compilerOrder="51">
+                <edit name="P26" visible="false" transparent="true" fontSize="18" fontColor="black" fontStyle="bold" horzTextAlign="leading" vertTextAlign="center" left="0" top="0" width="235" height="49" field="_26" compilerOrder="52"/>
+            </layout>
+
+        </rectangle>
+
+<!-- Dragão animação -->
+                    <image animate="true" src="/Gif/dragaoFichaPrincipal.gif" 
+                           left="26.75" top="570" width="500" height="300"/>
+                
+                <image animate="true" src="/Gif/rosasShow.gif"
+                           left="26.75" top="570" width="500" height="300"/>
+
+<!-- Aqui vai começar o bloqueio de pericia **AREA A** 148~~59 -->
+
+     <image name="Bloqueio1" visible="true" src="/Imagens/bloqueio.png" 
+          left="73" top="136" width="237" height="71" />
+
+     <image name="Bloqueio2" visible="true" src="/Imagens/bloqueio.png" 
+          left="73" top="195" width="237" height="71" />
+
+     <image name="Bloqueio3" visible="true" src="/Imagens/bloqueio.png" 
+          left="73" top="254" width="237" height="71" />
+
+     <image name="Bloqueio4" visible="true" src="/Imagens/bloqueio.png" 
+          left="73" top="313" width="237" height="71" />
+
+     <image name="Bloqueio5" visible="true" src="/Imagens/bloqueio.png" 
+          left="73" top="372" width="237" height="71" />  
+
+     <image name="Bloqueio6" visible="true" src="/Imagens/bloqueio.png" 
+          left="73" top="431" width="237" height="71" />  
+
+     <image name="Bloqueio7" visible="true" src="/Imagens/bloqueio.png" 
+          left="73" top="490" width="237" height="71" />  
+
+     <image name="Bloqueio8" visible="true" src="/Imagens/bloqueio.png" 
+          left="73" top="549" width="237" height="71" />  
+
+<!-- Aqui vai começar o bloqueio de pericia **AREA B** ~~59~~ -->
+
+     <image name="Bloqueio9" visible="true" src="/Imagens/bloqueio.png" 
+          left="322" top="136" width="237" height="71" />
+
+     <image name="Bloqueio10" visible="true" src="/Imagens/bloqueio.png" 
+          left="322" top="195" width="237" height="71" />
+
+     <image name="Bloqueio11" visible="true" src="/Imagens/bloqueio.png" 
+          left="322" top="254" width="237" height="71" />
+
+     <image name="Bloqueio12" visible="true"  src="/Imagens/bloqueio.png" 
+          left="322" top="313" width="237" height="71" />
+
+     <image name="Bloqueio13" visible="true"  src="/Imagens/bloqueio.png" 
+          left="322" top="372" width="237" height="71" />  
+
+     <image name="Bloqueio14" visible="true"  src="/Imagens/bloqueio.png" 
+          left="322" top="431" width="237" height="71" />  
+
+     <image name="Bloqueio15" visible="true"  src="/Imagens/bloqueio.png" 
+          left="322" top="490" width="237" height="71" />  
+
+     <image name="Bloqueio16" visible="true"  src="/Imagens/bloqueio.png" 
+          left="322" top="549" width="237" height="71" /> 
+
+<!-- Aqui vai começar o bloqueio de pericia **AREA C** ~~59~~ -->
+
+     <image name="Bloqueio17" visible="true"  src="/Imagens/bloqueio.png" 
+          left="663" top="525" width="237" height="71" />
+
+     <image name="Bloqueio18" visible="true"  src="/Imagens/bloqueio.png" 
+          left="663" top="584" width="237" height="71" />
+
+     <image name="Bloqueio19" visible="true"  src="/Imagens/bloqueio.png" 
+          left="663" top="643" width="237" height="71" />
+
+     <image name="Bloqueio20" visible="true"  src="/Imagens/bloqueio.png" 
+          left="663" top="702" width="237" height="71" />
+
+     <image name="Bloqueio21" visible="true"  src="/Imagens/bloqueio.png" 
+          left="663" top="761" width="237" height="71" />  
+
+<!-- Aqui vai começar o bloqueio de pericia **AREA D** ~~59~~ -->
+
+     <image name="Bloqueio22" visible="true"  src="/Imagens/bloqueio.png" 
+          left="913" top="525" width="237" height="71" />
+
+     <image name="Bloqueio23" visible="true"  src="/Imagens/bloqueio.png" 
+          left="913" top="584" width="237" height="71" />
+
+     <image name="Bloqueio24" visible="true"  src="/Imagens/bloqueio.png" 
+          left="913" top="643" width="237" height="71" />
+
+     <image name="Bloqueio25" visible="true"  src="/Imagens/bloqueio.png" 
+          left="913" top="702" width="237" height="71" />
+
+     <image name="Bloqueio26" visible="true"  src="/Imagens/bloqueio.png" 
+          left="913" top="761" width="237" height="71" /> 
+
+<!-- Aqui fica o layout do nivel -->
+  <image src="/Imagens/Nivel.png" left="619.75" top="152.25" width="76" height="26" >
+
+   <label field="nivel" align="left" margins="{left=80, top=-7}" 
+    fontColor="green" autoSize="true" fontSize="32" 
+      fontStyle="bold" wordWrap="false">   
+         </label>
+          </image>
+<!-- Aqui fica todo o contexto dos niveis com as pericias
+   sequencia numerica: 3 5 7 9 11 13 15 17 19 21 23 25 27 29 30~~2  -->
+
+  	<script>
+local function avisoPericiafunc();
+	
+		if sheet.nivel == 1 then
+			local chat = rrpg.getMesaDe(sheet).chat;
+			chat:enviarMensagem("[§K2]>>" .."[§K5]" .. sheet.Nome  .. 
+			":" .." [§K11]Preencha suas pericias iniciais:" .. "[§K7]" .. " Nível: " 
+			 .. sheet.nivel .. "!" .. 
+			"[§K13]" .. " ~Vá para aba de pericias. :)");
+	end; 
+
+		if sheet.nivel == 3 then
+			local chat = rrpg.getMesaDe(sheet).chat;
+			chat:enviarMensagem("[§K2]>>" .."[§K5]" .. sheet.Nome  .. 
+			":" .." [§K11]Um slot de pericia foi aberto:" .. "[§K7]" .. " Nível: " 
+			 .. sheet.nivel .. "!" .. 
+			"[§K13]" .. " ~Vá para aba de pericias. :)");
+ 
+    end;
+
+
+		if sheet.nivel == 5 then
+			local chat = rrpg.getMesaDe(sheet).chat;
+			chat:enviarMensagem("[§K2]>>" .."[§K5]" .. sheet.Nome  .. 
+			":" .." [§K11]Um slot de pericia foi aberto:" .. "[§K7]" .. " Nível: " 
+			 .. sheet.nivel .. "!" .. 
+			"[§K13]" .. " ~Vá para aba de pericias. :)");
+    end;
+
+		if sheet.nivel == 7 then
+			local chat = rrpg.getMesaDe(sheet).chat;
+			chat:enviarMensagem("[§K2]>>" .."[§K5]" .. sheet.Nome  .. 
+			":" .." [§K11]Um slot de pericia foi aberto:" .. "[§K7]" .. " Nível: " 
+			 .. sheet.nivel .. "!" .. 
+			"[§K13]" .. " ~Vá para aba de pericias. :)");
+    end;
+
+		if sheet.nivel == 9 then
+			local chat = rrpg.getMesaDe(sheet).chat;
+			chat:enviarMensagem("[§K2]>>" .."[§K5]" .. sheet.Nome  .. 
+			":" .." [§K11]Um slot de pericia foi aberto:" .. "[§K7]" .. " Nível: " 
+			 .. sheet.nivel .. "!" .. 
+			"[§K13]" .. " ~Vá para aba de pericias. :)");
+    end;
+
+		if sheet.nivel == 11 then
+			local chat = rrpg.getMesaDe(sheet).chat;
+			chat:enviarMensagem("[§K2]>>" .."[§K5]" .. sheet.Nome  .. 
+			":" .." [§K11]Um slot de pericia foi aberto:" .. "[§K7]" .. " Nível: " 
+			 .. sheet.nivel .. "!" .. 
+			"[§K13]" .. " ~Vá para aba de pericias. :)");
+    end;
+
+		if sheet.nivel == 13 then
+			local chat = rrpg.getMesaDe(sheet).chat;
+			chat:enviarMensagem("[§K2]>>" .."[§K5]" .. sheet.Nome  .. 
+			":" .." [§K11]Um slot de pericia foi aberto:" .. "[§K7]" .. " Nível: " 
+			 .. sheet.nivel .. "!" .. 
+			"[§K13]" .. " ~Vá para aba de pericias. :)");
+    end;
+
+		if sheet.nivel == 15 then
+			local chat = rrpg.getMesaDe(sheet).chat;
+			chat:enviarMensagem("[§K2]>>" .."[§K5]" .. sheet.Nome  .. 
+			":" .." [§K11]Um slot de pericia foi aberto:" .. "[§K7]" .. " Nível: " 
+			 .. sheet.nivel .. "!" .. 
+			"[§K13]" .. " ~Vá para aba de pericias. :)");
+    end;
+
+		if sheet.nivel == 17 then
+			local chat = rrpg.getMesaDe(sheet).chat;
+			chat:enviarMensagem("[§K2]>>" .."[§K5]" .. sheet.Nome  .. 
+			":" .." [§K11]Um slot de pericia foi aberto:" .. "[§K7]" .. " Nível: " 
+			 .. sheet.nivel .. "!" .. 
+			"[§K13]" .. " ~Vá para aba de pericias. :)");
+    end;
+
+		if sheet.nivel == 19 then
+			local chat = rrpg.getMesaDe(sheet).chat;
+			chat:enviarMensagem("[§K2]>>" .."[§K5]" .. sheet.Nome  .. 
+			":" .." [§K11]Um slot de pericia foi aberto:" .. "[§K7]" .. " Nível: " 
+			 .. sheet.nivel .. "!" .. 
+			"[§K13]" .. " ~Vá para aba de pericias. :)");
+    end;
+
+		if sheet.nivel == 21 then
+			local chat = rrpg.getMesaDe(sheet).chat;
+			chat:enviarMensagem("[§K2]>>" .."[§K5]" .. sheet.Nome  .. 
+			":" .." [§K11]Um slot de pericia foi aberto:" .. "[§K7]" .. " Nível: " 
+			 .. sheet.nivel .. "!" .. 
+			"[§K13]" .. " ~Vá para aba de pericias. :)");
+    end;
+
+		if sheet.nivel == 23 then
+			local chat = rrpg.getMesaDe(sheet).chat;
+			chat:enviarMensagem("[§K2]>>" .."[§K5]" .. sheet.Nome  .. 
+			":" .." [§K11]Um slot de pericia foi aberto:" .. "[§K7]" .. " Nível: " 
+			 .. sheet.nivel .. "!" .. 
+			"[§K13]" .. " ~Vá para aba de pericias. :)");
+    end;
+
+		if sheet.nivel == 25 then
+			local chat = rrpg.getMesaDe(sheet).chat;
+			chat:enviarMensagem("[§K2]>>" .."[§K5]" .. sheet.Nome  .. 
+			":" .." [§K11]Um slot de pericia foi aberto:" .. "[§K7]" .. " Nível: " 
+			 .. sheet.nivel .. "!" .. 
+			"[§K13]" .. " ~Vá para aba de pericias. :)");
+    end;
+
+		if sheet.nivel == 27 then
+			local chat = rrpg.getMesaDe(sheet).chat;
+			chat:enviarMensagem("[§K2]>>" .."[§K5]" .. sheet.Nome  .. 
+			":" .." [§K11]Um slot de pericia foi aberto:" .. "[§K7]" .. " Nível: " 
+			 .. sheet.nivel .. "!" .. 
+			"[§K13]" .. " ~Vá para aba de pericias. :)");
+    end;
+
+		if sheet.nivel == 29 then
+			local chat = rrpg.getMesaDe(sheet).chat;
+			chat:enviarMensagem("[§K2]>>" .."[§K5]" .. sheet.Nome  .. 
+			":" .." [§K11]Um slot de pericia foi aberto:" .. "[§K7]" .. " Nível: " 
+			 .. sheet.nivel .. "!" .. 
+			"[§K13]" .. " ~Vá para aba de pericias. :)");
+    end;
+
+		if sheet.nivel == 30 then
+			local chat = rrpg.getMesaDe(sheet).chat;
+			chat:enviarMensagem("[§K2]>>" .."[§K5]" .. sheet.Nome  .. 
+			":" .." [§K11]Um slot de pericia foi aberto:" .. "[§K7]" .. " Nível: " 
+			 .. sheet.nivel .. "!" .. 
+			"[§K13]" .. " ~Vá para aba de pericias. :)");
+    end;
+    end;
+
+
+
+
+ </script>
+ 
+       <button text="UP" fontColor="yellow" fontStyle="bold"
+          left="655" top="123" width="28" height="20"> 
+	    <event name="onClick">
+        
+ 	    if rrpg.getMesaDe(sheet).meuJogador.isMestre then
+         
+		 sheet.nivel = (sheet.nivel or 0) +1;avisoPericiafunc();
+		 else
+		 showMessage("Desculpe, você não pode aumentar seu nível, peça para o mestre fazer isso.")
+		 end;
+      
+         
+		</event>
+		<event name="onMenu">
+ 	    if rrpg.getMesaDe(sheet).meuJogador.isMestre then
+         sheet.nivel = (sheet.nivel or 0) -1;
+         else
+          showMessage("Desculpe, você não pode diminuir seu nível, peça para o mestre fazer isso.")	 
+		 end;		  
+		</event>
+		 </button>
+        
+        
+    <image animate="true" src="/Gif/nivelDestaque.gif" 
+    left="425" top="-85" width="500" height="500" />
+
+<!-- Aqui fica todo o contexto dos niveis com as pericias
+   sequencia numerica: 3 5 7 9 11 13 15 17 19 21 23 25 27 29 30~~2  -->
+  
+
+ <dataLink field="nivel">
+   <event name="onChange">
+    if sheet.nivel >= 1 then
+    self.P1.visible = true
+    self.P2.visible = true
+    self.P3.visible = true
+    self.P4.visible = true
+    self.P5.visible = true
+    self.Bloqueio1.visible = false
+    self.Bloqueio2.visible = false
+    self.Bloqueio3.visible = false
+    self.Bloqueio4.visible = false
+    self.Bloqueio5.visible = false
+     else
+    self.P1.visible = false;
+    self.P2.visible = false;
+    self.P3.visible = false;
+    self.P4.visible = false;
+    self.P5.visible = false;
+    self.Bloqueio1.visible = true;
+    self.Bloqueio2.visible = true;
+    self.Bloqueio3.visible = true;
+    self.Bloqueio4.visible = true;
+    self.Bloqueio5.visible = true;
+    end;
+    if sheet.nivel >= 1 then
+    self.P17.visible = true
+    self.P18.visible = true
+    self.P19.visible = true
+    self.P20.visible = true
+    self.Bloqueio17.visible = false;
+    self.Bloqueio18.visible = false;
+    self.Bloqueio19.visible = false;
+    self.Bloqueio20.visible = false;
+     else
+    self.P17.visible = false
+    self.P18.visible = false
+    self.P19.visible = false
+    self.P20.visible = false
+    self.P21.visible = false
+    self.Bloqueio17.visible = true;
+    self.Bloqueio18.visible = true;
+    self.Bloqueio19.visible = true;
+    self.Bloqueio20.visible = true;
+    self.Bloqueio21.visible = true;
+    end;
+
+    if sheet.nivel >= 3 then
+    self.P6.visible = true
+    self.Bloqueio6.visible = false;   
+     else  
+    self.P6.visible = false
+    self.Bloqueio6.visible = true;   
+     end;
+     
+    if sheet.nivel >= 5 then
+    self.P7.visible = true
+    self.Bloqueio7.visible = false;   
+     else  
+    self.P7.visible = false
+    self.Bloqueio7.visible = true;   
+     end;  
+        
+    if sheet.nivel >= 7 then
+    self.P8.visible = true
+    self.Bloqueio8.visible = false;   
+     else  
+    self.P8.visible = false
+    self.Bloqueio8.visible = true;   
+     end;
+
+    if sheet.nivel >= 9 then
+    self.P9.visible = true
+    self.Bloqueio9.visible = false;   
+     else  
+    self.P9.visible = false
+    self.Bloqueio9.visible = true;   
+     end;
+
+    if sheet.nivel >= 11 then
+    self.P10.visible = true
+    self.Bloqueio10.visible = false;   
+     else  
+    self.P10.visible = false
+    self.Bloqueio10.visible = true;   
+     end;
+
+    if sheet.nivel >= 13 then
+    self.P11.visible = true
+    self.Bloqueio11.visible = false;   
+     else  
+    self.P11.visible = false
+    self.Bloqueio11.visible = true;   
+     end;
+
+    if sheet.nivel >= 15 then
+    self.P12.visible = true
+    self.Bloqueio12.visible = false;   
+     else  
+    self.P12.visible = false
+    self.Bloqueio12.visible = true;   
+     end;
+
+    if sheet.nivel >= 17 then
+    self.P13.visible = true
+    self.Bloqueio13.visible = false;   
+     else  
+    self.P13.visible = false
+    self.Bloqueio13.visible = true;   
+     end;
+
+    if sheet.nivel >= 19 then
+    self.P14.visible = true
+    self.Bloqueio14.visible = false;   
+     else  
+    self.P14.visible = false
+    self.Bloqueio14.visible = true;   
+     end;
+
+    if sheet.nivel >= 21 then
+    self.P15.visible = true
+    self.Bloqueio15.visible = false;   
+     else  
+    self.P15.visible = false
+    self.Bloqueio15.visible = true;   
+     end;
+
+    if sheet.nivel >= 23 then
+    self.P16.visible = true
+    self.Bloqueio16.visible = false;   
+     else  
+    self.P16.visible = false
+    self.Bloqueio16.visible = true;   
+     end;
+
+    if sheet.nivel >= 25 then
+    self.P21.visible = true
+    self.Bloqueio21.visible = false;   
+     else  
+    self.P21.visible = false
+    self.Bloqueio21.visible = true;   
+     end;
+
+    if sheet.nivel >= 27 then
+    self.P22.visible = true
+    self.Bloqueio22.visible = false;   
+     else  
+    self.P22.visible = false
+    self.Bloqueio22.visible = true;   
+     end;
+
+    if sheet.nivel >= 29 then
+    self.P23.visible = true
+    self.Bloqueio23.visible = false;   
+     else  
+    self.P23.visible = false
+    self.Bloqueio23.visible = true;   
+     end;
+
+    if sheet.nivel >= 30 then
+    self.P24.visible = true
+    self.P25.visible = true
+    self.P26.visible = true
+    self.Bloqueio24.visible = false;
+    self.Bloqueio25.visible = false;
+    self.Bloqueio26.visible = false;
+     else
+    self.P24.visible = false
+    self.P25.visible = false
+    self.P26.visible = false
+    self.Bloqueio24.visible = true;
+    self.Bloqueio25.visible = true;
+    self.Bloqueio26.visible = true;  
+    end;
+
+     </event>
+      </dataLink>
+    
+
+    </scrollBox>
+    
+</form>

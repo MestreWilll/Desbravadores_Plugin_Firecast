@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="frmItemDeMagia" height="314" theme="dark" margins="{left=0, top=0}"> 
+
+                    <edit top="43" left="35" width="300" height="30" field="nome"/>
+		<textEditor left="5" top="111" width="200" field="Skills" name="Skills" height="120"/> 
+		<!-- REMOVEDOR -->
+        <layout width="92" height="68" top="118" left="286">
+		<image width="89" height="61" src="/Imagens/cuidado.png"/>
+        <button text="Remover Skill" width="90" height="18"
+                onClick="ndb.deleteNode(sheet);"/>
+		</layout>				
+	    ####FINISHI#####
+        <layout top="33" left="5">				
+                <imageCheckBox width="32" field="CheckBox" align="left"
+                              checkedImage="/Imagens/CheckBox_On.png" 
+                              uncheckedImage="/Imagens/CheckBox_Off.png"/>
+		</layout>
+							  <!-- Todas variações de Nomes que podem aparecer -->
+                        <label left="50" top="20" text="Nome da Skill" fontStyle="bold" fontColor="black"/>         
+                        <label left="19" top="88" width="231" text="Diga-me, o que você pode fazer?" fontStyle="bold" fontColor="black"/>
+						
+        <template name="LayoutUmCampo">
+                <layout width="64" align="left" margins="{left=2, right=2}">
+                        <edit field="$(campo)" height="30" horzTextAlign="center" fontSize="20" align="top"/> 
+                       <label fontStyle="bold" fontColor="black" text="$(titulo)" align="top" horzTextAlign="center" 
+                              vertTextAlign="leading" autoSize="true"/>
+               </layout>
+        </template>
+
+        <layout left="259" top="180" width="200" height="64">  
+                <LayoutUmCampo campo="combate.armadura" titulo="Preço"/>
+                <LayoutUmCampo campo="saude.pontosDeVida" titulo="Nivel"/> 
+                        </layout>
+              
+
+</form>

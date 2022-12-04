@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="frmMassacote"  height="810" theme="dark" margins="{left=0, top=0}"> 
+    // Imagem do mascote          
+   <image src="/Imagens/Massacote.png" width="526" height="800"/>
+   // REMOVEDOR DE MASCOTE
+   <image src="/Imagens/X.png" left="482" top="4.50" width="38.75" height="32.50"
+    onDblClick="ndb.deleteNode(sheet);" hitTest="true" cursor="handPoint" opacity="0"/>
+    //IMAGEM AQUI 
+ <image field="ImagemDoMassacote" editable="true" left="27.50" top="143.50" width="246.75" height="252.75"
+    style="autoFit"/> 
+  //Tags e pontos
+
+  <edit transparent="true" field="nome" fontStyle="bold" fontSize="20" 
+  left="30" top="105" width="245.75" height="28" 
+   horzTextAlign="center" fontColor="green"/>              
+
+<label field="ForcaM" fontStyle="bold" fontSize="25" 
+  left="401.75" top="93.25" width="81.75" height="32.25" 
+   horzTextAlign="center" fontColor="darkorchid"/> 
+
+<label field="HabilidadeM" fontStyle="bold" fontSize="25" 
+  left="401.75" top="158.25" width="81.75" height="32.25" 
+   horzTextAlign="center" fontColor="darkorchid"/>
+
+<label field="InteligenciaM" fontStyle="bold" fontSize="25" 
+  left="401.75" top="223.25" width="81.75" height="32.25" 
+   horzTextAlign="center" fontColor="darkorchid"/>
+
+<label field="PercepcaoM" fontStyle="bold" fontSize="25" 
+  left="401.75" top="288.25" width="81.75" height="32.25" 
+   horzTextAlign="center" fontColor="darkorchid"/>
+
+<label field="VigorM" fontStyle="bold" fontSize="25" 
+  left="401.75" top="352.25" width="81.75" height="32.25" 
+   horzTextAlign="center" fontColor="darkorchid"/>
+
+<label field="SorteM" fontStyle="bold" fontSize="25" 
+  left="401.75" top="417.25" width="81.75" height="32.25" 
+   horzTextAlign="center" fontColor="darkorchid" hitTest="true">
+   <event name="onClick">
+	    if rrpg.getMesaDe(sheet).meuJogador.isMestre then
+		dialogs.inputQuery("Atributo", "Novo valor:", "",
+		   function (valorPreenchido)
+					  sheet.SorteM = (sheet.SorteM or 0 ) + valorPreenchido; 
+	    end);
+		end;
+ </event> 
+ </label> 
+
+<label field="NivelMM" fontStyle="bold" fontSize="30" 
+  left="15.25" top="431.50" width="71.25" height="53.50" 
+   horzTextAlign="center" fontColor="Red"/>
+
+<edit transparent="true"  field="RacaMM" fontStyle="bold" fontSize="25" 
+  left="104" top="430.75" width="141" height="36" 
+   horzTextAlign="center" fontColor="green"/>
+
+<edit transparent="true"  field="IdadeMM" fontStyle="bold" fontSize="20" 
+  left="249.50" top="425" width="51" height="45" 
+   horzTextAlign="center" fontColor="green"/>
+
+<textEditor transparent="true" field="AnotacoesMM" fontSize="20" 
+  left="81.50" top="605" width="177.75" height="150.50" 
+   fontColor="black"/>
+
+<textEditor transparent="true"  field="SkillMM" fontSize="20" 
+  left="281" top="528.25" width="176.25" height="229.50" 
+   fontColor="black"/>
+
+        <progressBar fieldMax="barrinhas1" field="barrinhas2" 
+        left="127.75" top="515" width="133.75" height="16.50"  color="red"/>
+        
+         
+    <edit field="barrinhas1" left="133.25" top="538" width="44.25" height="28">
+           <label text="TOTAL" fontStyle="bold" fontColor="brown" align="top" margins="{top=30}" horzTextAlign="center">
+            </label>
+             </edit>
+         <edit field="barrinhas2" left="190.25" top="538" width="44.25" height="28">
+          <label text="ATUAL" fontStyle="bold" fontColor="brown" align="top" margins="{top=30}" horzTextAlign="center">
+            </label>
+             </edit>
+    //Iniciativa.
+    <button text="Iniciativa" fontStyle="bold" 
+     fontColor="black" fontSize="14" left="430" top="772" width="86" height="20" >
+     <event name="onDblClick">
+     if rrpg.getMesaDe(sheet).meuJogador.isMestre then
+      sheet.nivelM = 5
+      sheet.nivelMM = 1
+      sheet.ForcaM = 0
+      sheet.HabilidadeM = 0
+      sheet.InteligenciaM = 0
+      sheet.SorteM = 0
+      sheet.PercepcaoM = 0
+      sheet.VigorM = 0
+      else
+      showMessage("Peça para o mestre fazer isso para você")
+     end;
+     </event>
+      </button>
+
+
+    // Aqui fica os roll automatico. e também os coidgos para destribuição
+    //label da variavel nivel Aqui
+    <button text="UP" fontStyle="bold" 
+     fontColor="yellow" fontSize="14" left="475" top="52" width="30" height="30" >
+      <event name="onClick">
+      --- Add os ponto aq 
+			   if rrpg.getMesaDe(sheet).meuJogador.isMestre then
+			   sheet.nivelMM = (sheet.nivelMM or 0) +1;
+			   sheet.nivelM = (sheet.nivelM or 0) +1;
+			     else 
+				 showMessage("Você não possui permissões aqui, OTARIO!")
+		end;				
+      </event>
+      <event name="onMenu">
+      --- tira os pontos aqui 
+			   if rrpg.getMesaDe(sheet).meuJogador.isMestre then
+         sheet.NivelMM = (sheet.NivelMM or 0) -1;
+         sheet.NivelM = (sheet.NivelMM or 0) -1;
+      
+         
+			     else 
+				 showMessage("Você não possui permissões aqui, OTARIO!")
+		end;		
+    </event>		
+     
+       </button>
+
+  <label field="nivelM" fontStyle="bold" fontSize="17" left="193" top="56"/>
+    // SEPARANDO EM 2 ~~1 
+     
+     <button text="R" fontFamily="Showcard Gothic" 
+       left="497" top="84" width="18" height="19">
+       <event name="onClick">
+       --- Aqui fica os evento de rolll automatizado.
+					local rolagem = rrpg.interpretarRolagem("1d20 + " .. (sheet.HabilidadeM or "0"));
+					local mesaDoPersonagem = rrpg.getMesaDe(sheet);
+					mesaDoPersonagem.activeChat:rolarDados(rolagem, "Habilidade de " .. (sheet.nome or "[§K4][§B]*Coloque um nome em seu mascote*[§K4]"));
+
+       </event> 
+        </button>
+
+     <button text="+" fontFamily="Showcard Gothic" 
+       left="497" top="104" width="18" height="19">
+       <event name="onClick">
+		  local nivelM = (sheet.nivelM or 0) -1;
+		    if nivelM >= 0 then
+			 sheet.nivelM = nivelM; sheet.ForcaM = (sheet.ForcaM or 0) +1;
+	                 	else 
+	          showMessage("Você não tem pontos para destribuir!")    
+         end;			  
+       </event> 
+        </button>
+
+    //SEPARAÇAO ~~2 
+
+     <button text="R" fontFamily="Showcard Gothic" 
+       left="497" top="152" width="18" height="19">
+       <event name="onClick">
+     --- Aqui fica os evento de rolll automatizado.
+					local rolagem = rrpg.interpretarRolagem("1d20 + " .. (sheet.ForcaM or "0"));
+					local mesaDoPersonagem = rrpg.getMesaDe(sheet);
+					mesaDoPersonagem.activeChat:rolarDados(rolagem, "Força de " .. (sheet.nome or "[§K4][§B]Coloque um nome em seu mascote[§K4]"));
+
+       </event> 
+        </button>
+
+     <button text="+" fontFamily="Showcard Gothic" 
+       left="497" top="171" width="18" height="19">
+       <event name="onClick">
+		  local nivelM = (sheet.nivelM or 0) -1;
+		    if nivelM >= 0 then
+			 sheet.nivelM = nivelM; sheet.HabilidadeM = (sheet.HabilidadeM or 0) +1;
+	                 	else 
+	          showMessage("Você não tem pontos para destribuir!")    
+         end;			  
+
+       </event> 
+        </button> 
+               
+        //Separação ~~3
+
+     <button text="R" fontFamily="Showcard Gothic" 
+       left="497" top="217" width="18" height="19">
+       <event name="onClick">
+       --- Aqui fica os evento de rolll automatizado.
+					local rolagem = rrpg.interpretarRolagem("1d20 + " .. (sheet.InteligenciaM or "0"));
+					local mesaDoPersonagem = rrpg.getMesaDe(sheet);
+					mesaDoPersonagem.activeChat:rolarDados(rolagem, "Inteligência de " .. (sheet.nome or "[§K4][§B]Coloque um nome em seu mascote[§K4]"));
+       </event> 
+        </button>
+
+     <button text="+" fontFamily="Showcard Gothic" 
+       left="497" top="236" width="18" height="19">
+       <event name="onClick">
+		  local nivelM = (sheet.nivelM or 0) -1;
+		    if nivelM >= 0 then
+			 sheet.nivelM = nivelM; sheet.InteligenciaM = (sheet.InteligenciaM or 0) +1;
+	                 	else 
+	          showMessage("Você não tem pontos para destribuir!")    
+         end;			  
+
+       </event> 
+        </button> 
+
+      //Separação ~~4
+
+     <button text="R" fontFamily="Showcard Gothic" 
+       left="497" top="282" width="18" height="19">
+       <event name="onClick">
+       --- Aqui fica os evento de rolll automatizado.
+					local rolagem = rrpg.interpretarRolagem("1d20 + " .. (sheet.PercepcaoM or "0"));
+					local mesaDoPersonagem = rrpg.getMesaDe(sheet);
+					mesaDoPersonagem.activeChat:rolarDados(rolagem, "Percepção de " .. (sheet.nome or "[§K4][§B]Coloque um nome em seu mascote[§K4]"));
+       </event> 
+        </button>
+
+     <button text="+" fontFamily="Showcard Gothic" 
+       left="497" top="302" width="18" height="19">
+       <event name="onClick">
+		  local nivelM = (sheet.nivelM or 0) -1;
+		    if nivelM >= 0 then
+			 sheet.nivelM = nivelM; sheet.PercepcaoM = (sheet.PercepcaoM or 0) +1;
+	                 	else 
+	          showMessage("Você não tem pontos para destribuir!")    
+         end;			  
+
+       </event> 
+        </button> 
+
+        //Separação ~~5
+
+     <button text="R" fontFamily="Showcard Gothic" 
+       left="497" top="346" width="18" height="19">
+       <event name="onClick">
+       --- Aqui fica os evento de rolll automatizado.
+					local rolagem = rrpg.interpretarRolagem("1d20 + " .. (sheet.VigorM or "0"));
+					local mesaDoPersonagem = rrpg.getMesaDe(sheet);
+					mesaDoPersonagem.activeChat:rolarDados(rolagem, "Vigor de " .. (sheet.nome or "[§K4][§B]Coloque um nome em seu mascote[§K4]"));
+       </event> 
+        </button>
+
+     <button text="+" fontFamily="Showcard Gothic" 
+       left="497" top="366" width="18" height="19">
+       <event name="onClick">
+		  local nivelM = (sheet.nivelM or 0) -1;
+		    if nivelM >= 0 then
+			 sheet.nivelM = nivelM; sheet.VigorM = (sheet.VigorM or 0) +1;
+	                 	else 
+	          showMessage("Você não tem pontos para destribuir!")    
+         end;			  
+
+       </event> 
+        </button> 
+
+        //Separação ~~6
+
+
+     <button text="R" fontFamily="Showcard Gothic" 
+       left="497" top="411" width="18" height="19">
+       <event name="onClick">
+       --- Aqui fica os evento de rolll automatizado.
+					local rolagem = rrpg.interpretarRolagem("1d20 + " .. (sheet.SorteM or "0"));
+					local mesaDoPersonagem = rrpg.getMesaDe(sheet);
+					mesaDoPersonagem.activeChat:rolarDados(rolagem, "Sorte de " .. (sheet.nome or "[§K4][§B]Coloque um nome em seu mascote[§K4]"));
+       </event> 
+        </button>
+
+     <button text="+" fontFamily="Showcard Gothic" 
+       left="497" top="431" width="18" height="19">
+       <event name="onClick">
+		  local nivelM = (sheet.nivelM or 0) -1;
+		    if nivelM >= 0 then
+			 sheet.nivelM = nivelM; sheet.SorteM = (sheet.SorteM or 0) +1;
+	                 	else 
+	          showMessage("Você não tem pontos para destribuir!")    
+         end;			  
+       </event> 
+        </button> 
+
+    // Vou colacar o botao que tira o Atributo
+    // colocarei um em cima do outro, porque sou preguiçoso
+
+     <button text="-" fontFamily="Showcard Gothic" 
+       left="497" top="124" width="18" height="19">
+       <event name="onClick">
+		  local ForcaM = (sheet.ForcaM or 0) -1;
+		    if ForcaM >= 0 then
+			 sheet.ForcaM = ForcaM;sheet.NivelM = (sheet.NivelM or 0) +1;
+	                 	else 
+	          showMessage("Calma ae, não tem mais nada aqui!")    
+         end;			  
+       </event> 
+        </button> 
+
+     <button text="-" fontFamily="Showcard Gothic" 
+       left="497" top="191" width="18" height="19">
+       <event name="onClick">
+		  local HabilidadeM = (sheet.HabilidadeM or 0) -1;
+		    if HabilidadeM >= 0 then
+			 sheet.HabilidadeM = HabilidadeM;sheet.NivelM = (sheet.NivelM or 0) +1;
+	                 	else 
+	          showMessage("Calma ae, não tem mais nada aqui!")   
+         end;	  
+       </event> 
+        </button> 
+
+     <button text="-" fontFamily="Showcard Gothic" 
+       left="497" top="256" width="18" height="19">
+       <event name="onClick">
+		  local InteligenciaM = (sheet.InteligenciaM or 0) -1;
+		    if InteligenciaM >= 0 then
+			 sheet.InteligenciaM = InteligenciaM;sheet.NivelM = (sheet.NivelM or 0) +1;
+	                 	else 
+	          showMessage("Calma ae, não tem mais nada aqui!")   
+         end;			  
+       </event> 
+        </button> 
+
+     <button text="-" fontFamily="Showcard Gothic" 
+       left="497" top="321" width="18" height="19">
+       <event name="onClick">
+		  local PercepcaoM = (sheet.PercepcaoM or 0) -1;
+		    if PercepcaoM >= 0 then
+			 sheet.PercepcaoM = PercepcaoM;sheet.NivelM = (sheet.NivelM or 0) +1;
+	                 	else 
+	          showMessage("Sem vigor você não tem vida.")   
+         end;			  
+       </event> 
+        </button> 
+
+     <button text="-" fontFamily="Showcard Gothic" 
+       left="497" top="386" width="18" height="19">
+       <event name="onClick">
+		  local VigorM = (sheet.VigorM or 0) -1;
+		    if VigorM >= 0 then
+			 sheet.VigorM = VigorM;sheet.NivelM = (sheet.NivelM or 0) +1;
+	                 	else 
+	          showMessage("Calma ae, não tem mais nada aqui!")   
+         end;	  
+       </event> 
+        </button> 
+
+     <button text="-" fontFamily="Showcard Gothic" 
+       left="497" top="451" width="18" height="19">
+       <event name="onClick">
+		  local SorteM = (sheet.SorteM or 0) -1;
+		    if SorteM >= 0 then
+			 sheet.SorteM = SorteM;sheet.NivelM = (sheet.NivelM or 0) +1;
+	                 	else 
+	          showMessage("Somente o mestre tem permissões para queimar a sorte!")   
+         end;			  
+       </event> 
+        </button> 
+</form>

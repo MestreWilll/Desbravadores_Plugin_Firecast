@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module sdkVersion="3.5">
+	<!--O id identifica seu plugin globalmente. Deve ser único, conter apenas caracteres alfanuméricos, underlines, pontos e deve conter ao menos 5 caracteres e um máximo de 40. Uma vez definido o ID, você não deve alterar ele ;) -->
+	<id>Desbravadores_Medieval</id>
+	<!--version é a versão do seu plugin. Quando for lançar uma nova versão do seu módulo, altere aqui =) -->
+	<version>2.8.7</version>
+	
+	
+	
+	
+	
+    <info lang="pt-BR">
+        <!--Informações do plugin na língua "pt-BR". Você pode ter várias tags "info", uma para cada tradução que quiser.-->
+        <name>Desbravadores2</name>
+        <description>Um mundo incirvel e cheio de coisas a explorar, merece uma ficha incrivel também :) </description>
+        <author>Mestre Will</author>
+        <site/>
+        <contact/>
+    </info>
+    <name>Short name of your plugin here. Example: D&amp;D 5e</name>
+    <description>Description of the plugin here. Example: Adds tab support for the ETC system, with such features, for such purposes ...</description>
+    <author>Your name here</author>
+    <site>http://www.yourwebsite.com</site>
+    <contact>Facebook? Twitter? E-Mail?</contact>
+</module>

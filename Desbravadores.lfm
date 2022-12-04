@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="frmDesbravadores" formType="sheetTemplate" dataType="Desbravadores2" title="Desbravadores (PDF)" align="client">
+    <tabControl align="client">
+  
+        <tab title="Sobre o Personagem">
+            <import file="1.lfm"/>
+        </tab>
+        <tab title="Pericias">
+            <import file="2.lfm"/>
+        </tab>
+        <tab title="Anotação">
+            <import file="3.lfm"/>
+        </tab>
+ <tab title="Historia">
+            <import file="4.lfm"/>
+        </tab>
+        <tab title="Loja de Poção">
+            <import file="5.lfm"/>
+        </tab>  
+      
+    </tabControl>
+</form>

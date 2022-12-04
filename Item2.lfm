@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="frmItem2" height="30" margins="{top=2,bottom=2}">       
+
+    <edit align="client" field="descricao" margins="{right=2}"/>
+ 
+
+    <button align="right" text="Apagar" width="80"
+           onClick="ndb.deleteNode(sheet);"/>
+</form>

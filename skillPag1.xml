@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group>   
+
+  <layout align="client" name="Pag1" visible="false">
+      <scrollBox align="client">
+    <!-- Começa aqui a imagem principal (Sera alteradas varias vezes) -->
+    <image src="/Imagens/Skill.png" left="0" top="0" width="746" height="566"/>
+
+    <!-- Aqui as imagens em alteração -->
+	<image animate="true" src="/Gif/Deuses1.gif"  left="506.75" top="293" width="171" height="125"/>
+	<image src="/Icones/Skill/SkillBanner.png" left="220" top="73" width="455" height="112"/>
+    <image src="/Imagens/volta.png" left="70" top="65" width="144" height="120"
+	 hitTest="true" cursor="handPoint">
+         <event name="onClick">
+             self.fichaPrincipal.visible = true;
+             self.Pag1.visible = false;             
+             </event>
+              </image>
+
+    <!-- aqui fica os botões -->
+#### Agora sim ### 
+	       
+        <!-- Botão de inserir novo item à lista -->
+        <layout align="top" height="250" margins="{bottom=50}">
+                <button text="ADD Skill" fontStyle="bold" 
+                fontColor="black" left="224" top="159">
+                        <event name="onClick">
+                                -- Usuário clicou no botão de criar novo item.
+                                -- Vamos inserir um novo item no nosso recordList                              
+                                self.rclMagias:append();
+                        </event>
+                </button>
+        </layout>       
+
+        <!-- recordList, representando a lista -->
+        
+        <recordList name="rclMagias" field="magias" templateForm="frmItemDeMagia"
+        left="66.50" top="202" width="441" height="313" selectable="true">                              
+
+                <event name="onSelect">
+                        --[[
+                        Este evento é chamado quando o usuário selecionar/deselecionar itens da lista. Quando o usuário selecionar, vamos fazer nosso dataScopeBox (e todas as tag dentro dele) salvar e carregar dados no   objeto Nodo (NodeDatabase) do item selecionado.
+
+                  --]]                      
+                  local node = self.rclMagias.selectedNode;  
+                         self.boxDetalhesDoItem2.node = node;                       
+                  -- a caixa de detalhe só ficará visível se houver item selecionado
+                          self.boxDetalhesDoItem2.visible = (node ~= nil);
+                </event>
+        </recordList>  
+           
+        <!-- dataScopeBox representando a nossa caixa de detalhes -->  
+        <dataScopeBox name="boxDetalhesDoItem2" visible="true" align="right" 
+                     width="400" margins="{left=4, right=4}">
+                <!-- Faça um layout "bonito" para sua caixa de detalhes =). Utilize a propriedade "field" nas tags aqui dentro   -->   
+        
+  
+        </dataScopeBox>
+                 </scrollBox>
+
+        </layout>
+         </group> 

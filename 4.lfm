@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="frmDesbravadores1_svg" align="client" theme="dark" margins="{top=1}">
+    <style>#frmDesbravadores1_svg path {color: black; strokeColor: black; mode: stretch;} 
+#frmDesbravadores1_svg label {fontColor: black; textTrimming: none; wordWrap: false; autoSize: true;}</style>
+    <scrollBox align="client">
+        <rectangle width="980" height="726" color="white">
+            <image left="0" top="0" width="980" height="726" src="images/4.png" style="stretch" optimize="true" compilerOrder="0"/>
+
+            <layout left="75" top="125.50" width="349" height="471" compilerOrder="1">
+        <!-- aqui fica o editor antigo -->
+                <textEditor visible="false" left="15" top="0" width="350" height="450" 
+                fontSize="21" fontColor="#000000"  field="Historia" name="Historia"
+                transparent="true" compilerOrder="2"/>
+## FINISH## 
+            </layout>
+        </rectangle>
+
+  <!-- arrumando a parte de historia -->
+
+  <richEdit name="richEdit1" field="richEdit1" visible="true" left="72" top="125.50" width="350" height="480.50" 
+  backgroundColor="black" defaultFontColor="white" />
+
+
+   <layout name="Conteudo" left="850" top="0" width="131" height="62" >
+
+   <button text="Conteúdo novo" fontStyle="bold" fontColor="black" left="0" top="0"   width="113" height="22">
+       <event name="onClick">
+       self.Historia.visible = false;
+       self.richEdit1.visible = true
+         </event>
+          </button>
+
+   <button text="Conteúdo antigo" fontColor="black" fontStyle="bold" left="0" top="30"  width="120" height="22">
+       <event name="onClick">
+       self.Historia.visible = true;
+       self.richEdit1.visible = false
+
+         </event>
+          </button>
+      </layout>
+
+  <image field="Mapa" editable="true" style="autoFit" left="565" top="106" width="292" height="233.25"/>
+  <image field="passado" editable="true" style="autoFit" left="605" top="467.50" width="210.75" height="189.75"/>
+    </scrollBox>
+</form>

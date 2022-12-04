@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="frmDesbravadores2_svg" align="client">
+
+    <scrollBox align="client">
+            <image name="anotacaoPrincipal" left="0" top="0" width="1263" height="893" src="images/3.png" style="stretch" optimize="true" compilerOrder="0"/>
+            <layout name="textEditorAntigo" left="178" top="176" width="918" height="607" compilerOrder="1">
+
+     <!-- Editor antigo -->
+                <textEditor left="0" top="0" width="918" height="607" fontSize="21" 
+                 fontColor="#000000" field="Anotação" name="Anotacao" transparent="true" visible="false"/>
+
+            </layout>
+		
+    <import file="Anotacao.xml"/>
+	<import file="Linhas.xml"/>
+
+	<image name="anotacaoImagem" src="/Imagens/Contatos.png" left="80" top="13.5" height="80" width="80"/>
+
+    <button name="listaDeContatos" text="Lista de contatos" width="130" height="30" left="60" top="100" >
+	    <event name="onClick">
+             self.anotacaoPrincipal.visible = false;
+             self.textEditorAntigo.visible = false;
+             self.richEdit2.visible = false;
+             self.conteudoNovoAntigo.visible = false;
+             self.listaDeContatos.visible = false;
+             self.anotacaoImagem.visible = false;
+             self.AnotacaoTotal.visible = true
+	    </event>
+            </button>
+
+
+            
+     <!-- Editor novo -->
+  <richEdit name="richEdit2" field="richEdit2" visible="true" left="90" top="160" width="1000" height="700" 
+  backgroundColor="black" defaultFontColor="white" />
+
+
+   <layout name="conteudoNovoAntigo" left="1050" top="50" width="131" height="62" >
+
+   <button text="Conteúdo novo" fontStyle="bold" fontColor="black" left="0" top="0"   width="113" height="22">
+       <event name="onClick">
+       self.Anotacao.visible = false;
+       self.richEdit2.visible = true
+
+         </event>
+          </button>
+
+   <button text="Conteúdo antigo" fontColor="black" fontStyle="bold" left="0" top="30"  width="120" height="22">
+       <event name="onClick">
+       self.Anotacao.visible = true;
+       self.richEdit2.visible = false
+
+         </event>
+          </button>
+      </layout>	
+    </scrollBox>
+</form>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="frmLojaDePocoes" align="client" theme="dark" margins="{top=1}">
+ <scrollBox align="client">
+   
+
+   <image src="/Imagens/LojaDePotion.png" width="1020" height="478"/>
+
+
+	 <import file="PocaoHPLoja.xml"/> 
+	 <import file="PocaoMPLoja.xml"/>
+	 <import file="Preços.xml"/>
+	 <import file="Moedas.xml"/>
+	 <import file="Vender.xml"/>
+	 <import file="Botão_ON_OFF.xml"/>
+
+
+	</scrollBox>   
+</form>

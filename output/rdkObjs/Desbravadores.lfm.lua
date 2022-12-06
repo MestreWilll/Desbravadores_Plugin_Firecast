@@ -2461,41 +2461,29 @@ local function constructNew_frmDesbravadores()
 
  
             local function nivelvoltarfunc()
-            if Firecast.getMesaDe(sheet).meuJogador.isMestre then
-               if sheet.nivel > 0 then
-                  sheet.nivel = sheet.nivel - 1;
-                  end;
-                  end;
-                  end;
-         
-                  local function nivelfunc()
-                     if sheet.nivel >= 0 then
-                        sheet.nivel = sheet.nivel + 1;
-                        end;
-                        end;
-         
-                        local function operadorNivelfunc()
-                           if sheet.nivel == 1 then
-                              sheet.Pontos2 = 20
-                              sheet.Pontos2 = (sheet.Pontos2 or 0) - 1;
-                              end;
-                              if sheet.nivel == 2 then
-                                 sheet.Pontos2 = (sheet.Pontos2 or 0) - 1;
-                                 sheet.Pontos2 = (sheet.Pontos2 or 0) + 3;
-                                 end;
-                                 if sheet.nivel == 3 then
-                                    sheet.Pontos2 = (sheet.Pontos2 or 0) - 1;
-                                    sheet.Pontos2 = (sheet.Pontos2 or 0) + 3;
-                                    end;
-                                    if sheet.nivel == 4 then
-                                    sheet.Pontos2 = (sheet.Pontos2 or 0) - 1;
-                                    sheet.Pontos2 = (sheet.Pontos2 or 0) + 3;
-                                     
-                                    
-                                   
-                                    end;
-                                    end;
-                               
+            if Firecast.getMesaDe(sheet).meuJogador.isMestre and sheet.nivel > 0 then
+                sheet.nivel = sheet.nivel - 1
+            end
+        end
+        
+        local function nivelfunc()
+            if sheet.nivel >= 0 then
+                sheet.nivel = sheet.nivel + 1
+            end
+        end
+        
+        local function operadorNivelfunc()
+            if sheet.nivel == 1 then
+                sheet.Pontos2 = 19
+            elseif sheet.nivel == 2 then
+                sheet.Pontos2 = sheet.Pontos2 + 2
+            elseif sheet.nivel == 3 then
+                sheet.Pontos2 = sheet.Pontos2 + 2
+            elseif sheet.nivel == 4 then
+                sheet.Pontos2 = sheet.Pontos2 + 2
+            end
+        end
+                                       
                                       
                   
  
@@ -6523,15 +6511,17 @@ local function avisoPericiafunc();
     obj._e_event110 = obj.dataLink15:addEventListener("onChange",
         function (_, field, oldValue, newValue)
             function format_thousand(v)
-            	local s = string.format("%d", math.floor(v))
-            	local pos = string.len(s) % 3 
-            	if pos == 0 then pos = 3 end
-                return string.sub(s, 1, pos)
-            	    .. "" .. string.gsub(string.sub(s, pos+1), "(...)", ".%1") 
-            		.. "" .. string.sub(string.format("%.0f", v - math.floor(v)), 3) 
-            
-            end;
-            	  self.labSoma.text = '$' .. format_thousand(sheet.soma);
+            				if type(v) ~= "number" then
+            				  return ""
+            				end
+            			  
+            				local s = string.format("%d", math.floor(v))
+            				local pos = string.len(s) % 3 
+            				if pos == 0 then pos = 3 end
+            				return string.sub(s, 1, pos)
+            				  .. "" .. string.gsub(string.sub(s, pos+1), "(...)", ".%1") 
+            				  .. "" .. string.sub(string.format("%.0f", v - math.floor(v)), 3) 
+            			  end
         end, obj);
 
     obj._e_event111 = obj.QuantidadeTodos:addEventListener("onDblClick",

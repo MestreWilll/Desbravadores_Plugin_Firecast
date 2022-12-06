@@ -2443,41 +2443,29 @@ local function constructNew_frmDesbravadores23_svg()
 
  
             local function nivelvoltarfunc()
-            if Firecast.getMesaDe(sheet).meuJogador.isMestre then
-               if sheet.nivel > 0 then
-                  sheet.nivel = sheet.nivel - 1;
-                  end;
-                  end;
-                  end;
-         
-                  local function nivelfunc()
-                     if sheet.nivel >= 0 then
-                        sheet.nivel = sheet.nivel + 1;
-                        end;
-                        end;
-         
-                        local function operadorNivelfunc()
-                           if sheet.nivel == 1 then
-                              sheet.Pontos2 = 20
-                              sheet.Pontos2 = (sheet.Pontos2 or 0) - 1;
-                              end;
-                              if sheet.nivel == 2 then
-                                 sheet.Pontos2 = (sheet.Pontos2 or 0) - 1;
-                                 sheet.Pontos2 = (sheet.Pontos2 or 0) + 3;
-                                 end;
-                                 if sheet.nivel == 3 then
-                                    sheet.Pontos2 = (sheet.Pontos2 or 0) - 1;
-                                    sheet.Pontos2 = (sheet.Pontos2 or 0) + 3;
-                                    end;
-                                    if sheet.nivel == 4 then
-                                    sheet.Pontos2 = (sheet.Pontos2 or 0) - 1;
-                                    sheet.Pontos2 = (sheet.Pontos2 or 0) + 3;
-                                     
-                                    
-                                   
-                                    end;
-                                    end;
-                               
+            if Firecast.getMesaDe(sheet).meuJogador.isMestre and sheet.nivel > 0 then
+                sheet.nivel = sheet.nivel - 1
+            end
+        end
+        
+        local function nivelfunc()
+            if sheet.nivel >= 0 then
+                sheet.nivel = sheet.nivel + 1
+            end
+        end
+        
+        local function operadorNivelfunc()
+            if sheet.nivel == 1 then
+                sheet.Pontos2 = 19
+            elseif sheet.nivel == 2 then
+                sheet.Pontos2 = sheet.Pontos2 + 2
+            elseif sheet.nivel == 3 then
+                sheet.Pontos2 = sheet.Pontos2 + 2
+            elseif sheet.nivel == 4 then
+                sheet.Pontos2 = sheet.Pontos2 + 2
+            end
+        end
+                                       
                                       
                   
  

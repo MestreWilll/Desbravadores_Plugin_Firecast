@@ -3168,22 +3168,32 @@ local function constructNew_frmDesbravadores23_svg()
     obj._e_event25 = obj.reset:addEventListener("onClick",
         function (_)
             if Firecast.getMesaDe(sheet).meuJogador.isMestre then
-                   sheet.nivel =  0;
-                   sheet.Pontos2 = 20;
-                   sheet.parcela1 = 0;
-                   sheet.parcela6 = 0;
-                   sheet.parcela11 = 0;
-                   sheet.parcela16 = 0;
-                   sheet.parcela21 = 0;
-                   sheet.parcela26 = 0;
-                   sheet.parcela31 = 0;
-                   sheet.parcela36 = 0;
-                   sheet.parcela41 = 0;
-                   sheet.parcela46 = 0;
-                   sheet.parcela51 = 0;
-                    else
-                    showMessage("Você não possui permissões aqui")
-                    end;
+                            sheet.nivel = 0
+                            sheet.Pontos2 = 20
+                        
+                            -- Criamos uma lista de variáveis que queremos atribuir valores
+                            local variaveis = {
+                                "parcela1",
+                                "parcela6",
+                                "parcela11",
+                                "parcela16",
+                                "parcela21",
+                                "parcela26",
+                                "parcela31",
+                                "parcela36",
+                                "parcela41",
+                                "parcela46",
+                                "parcela51"
+                            }
+                        
+                            -- Usamos um laço for para percorrer a lista de variáveis
+                            for i, variavel in ipairs(variaveis) do
+                                -- Atribuímos o valor 0 a cada variável da lista
+                                sheet[variavel] = 0
+                            end
+                        else
+                            showMessage("Você não possui permissões aqui")
+                        end
         end, obj);
 
     obj._e_event26 = obj.image14:addEventListener("onClick",
@@ -3227,11 +3237,14 @@ local function constructNew_frmDesbravadores23_svg()
     obj._e_event31 = obj.label26:addEventListener("onClick",
         function (_)
             if Firecast.getMesaDe(sheet).meuJogador.isMestre then
-                                dialogs.inputQuery("Nivel", "Quantidade de Pontos:", "",
-                                   function (valorPreenchido)
-                                              sheet.nivel = (sheet.nivel or 0) + valorPreenchido; 
-                                end);
-                                end;
+                                dialogs.inputQuery("Nível", "Insira a quantidade de pontos:", "",
+                                    function (valorPreenchido)
+                                        if valorPreenchido then
+                                            sheet.nivel = (sheet.nivel or 0) + tonumber(valorPreenchido)
+                                        end
+                                    end
+                                )
+                            end
         end, obj);
 
     obj._e_event32 = obj.botaodeUP:addEventListener("onMenu",
@@ -3300,14 +3313,13 @@ local function constructNew_frmDesbravadores23_svg()
     obj._e_event38 = obj.botaon5:addEventListener("onClick",
         function (_)
             local mesaDoPersonagem = Firecast.getMesaDe(sheet);
-                                    local msg = ""; 
-                                    
+            
                                     local rolagem = Firecast.interpretarRolagem("1d12 + " .. (sheet.resultadoSoma5 or "0"));
                                     mesaDoPersonagem.activeChat:rolarDados(rolagem, "Esquiva de " .. (sheet.Nome or "PONHA UM NOME NO PERSONAGEM"), 
-                                    function(rolagem)
-                                    msg = msg .. "------------------- \nResultado rolagem: " .. rolagem.resultado;
-                                    showMessage(msg);
-                                    end);
+                                        function(rolagem)
+                                            showMessage("------------------- \nResultado rolagem: " .. rolagem.resultado);
+                                        end
+                                    );
         end, obj);
 
     obj._e_event39 = obj.botaon6:addEventListener("onClick",
@@ -3388,17 +3400,18 @@ local function constructNew_frmDesbravadores23_svg()
     obj._e_event45 = obj.image15:addEventListener("onMenu",
         function (_, x, y)
             local Pontos2 = (sheet.Pontos2 or 0) +1;
-                if Pontos2 >= 0 then
+            
+                    if Pontos2 >= 0 and (sheet.parcela1 or 0) > 0 then
                  sheet.Pontos2 = Pontos2; sheet.parcela1 = (sheet.parcela1 or 0) -1;
                              else 
-                  showMessage("CALMA CARA! Não tem mais nada aqui...")    
+                  showMessage("Você não pode reduzir mais.")    
              end;
         end, obj);
 
     obj._e_event46 = obj.image16:addEventListener("onClick",
         function (_)
             local Pontos2 = (sheet.Pontos2 or 0) -1;
-                                    if Pontos2 >= 0 then
+                    if Pontos2 >= 0 and (sheet.parcela6 or 0) > 0 then
                                      sheet.Pontos2 = Pontos2; sheet.parcela6 = (sheet.parcela6 or 0) +1;
                                                  else 
                                       showMessage("CALMA CARA! Não tem mais nada aqui...")    
@@ -3408,7 +3421,7 @@ local function constructNew_frmDesbravadores23_svg()
     obj._e_event47 = obj.image16:addEventListener("onMenu",
         function (_, x, y)
             local Pontos2 = (sheet.Pontos2 or 0) +1;
-                                    if Pontos2 >= 0 then
+                    if Pontos2 >= 0 and (sheet.parcela6 or 0) > 0 then
                                      sheet.Pontos2 = Pontos2; sheet.parcela6 = (sheet.parcela6 or 0) -1;
                                                  else 
                                       showMessage("CALMA CARA! Não tem mais nada aqui...")    
@@ -3418,7 +3431,7 @@ local function constructNew_frmDesbravadores23_svg()
     obj._e_event48 = obj.image17:addEventListener("onClick",
         function (_)
             local Pontos2 = (sheet.Pontos2 or 0) -1;
-                                        if Pontos2 >= 0 then
+                        if Pontos2 >= 0 and (sheet.parcela11 or 0) > 0 then
                                          sheet.Pontos2 = Pontos2; sheet.parcela11 = (sheet.parcela11 or 0) +1;
                                                      else 
                                           showMessage("CALMA CARA! Não tem mais nada aqui...")    
@@ -3428,7 +3441,7 @@ local function constructNew_frmDesbravadores23_svg()
     obj._e_event49 = obj.image17:addEventListener("onMenu",
         function (_, x, y)
             local Pontos2 = (sheet.Pontos2 or 0) +1;
-                                        if Pontos2 >= 0 then
+                        if Pontos2 >= 0 and (sheet.parcela11 or 0) > 0 then
                                          sheet.Pontos2 = Pontos2; sheet.parcela11 = (sheet.parcela11 or 0) -1;
                                                      else 
                                           showMessage("CALMA CARA! Não tem mais nada aqui...")    
@@ -3438,7 +3451,7 @@ local function constructNew_frmDesbravadores23_svg()
     obj._e_event50 = obj.image18:addEventListener("onClick",
         function (_)
             local Pontos2 = (sheet.Pontos2 or 0) -1;
-                                            if Pontos2 >= 0 then
+                            if Pontos2 >= 0 and (sheet.parcela16 or 0) > 0 then
                                              sheet.Pontos2 = Pontos2; sheet.parcela16 = (sheet.parcela16 or 0) +1;
                                                          else 
                                               showMessage("CALMA CARA! Não tem mais nada aqui...")    
@@ -3448,7 +3461,7 @@ local function constructNew_frmDesbravadores23_svg()
     obj._e_event51 = obj.image18:addEventListener("onMenu",
         function (_, x, y)
             local Pontos2 = (sheet.Pontos2 or 0) +1;
-                                            if Pontos2 >= 0 then
+                            if Pontos2 >= 0 and (sheet.parcela16 or 0) > 0 then
                                              sheet.Pontos2 = Pontos2; sheet.parcela16 = (sheet.parcela16 or 0) -1;
                                                          else 
                                               showMessage("CALMA CARA! Não tem mais nada aqui...")    
@@ -3458,7 +3471,7 @@ local function constructNew_frmDesbravadores23_svg()
     obj._e_event52 = obj.image19:addEventListener("onClick",
         function (_)
             local Pontos2 = (sheet.Pontos2 or 0) -1;
-                                                if Pontos2 >= 0 then
+                                if Pontos2 >= 0 and (sheet.parcela21 or 0) > 0 then
                                                  sheet.Pontos2 = Pontos2; sheet.parcela21 = (sheet.parcela21 or 0) +1;
                                                              else 
                                                   showMessage("CALMA CARA! Não tem mais nada aqui...")    
@@ -3468,7 +3481,7 @@ local function constructNew_frmDesbravadores23_svg()
     obj._e_event53 = obj.image19:addEventListener("onMenu",
         function (_, x, y)
             local Pontos2 = (sheet.Pontos2 or 0) +1;
-                                                if Pontos2 >= 0 then
+                                if Pontos2 >= 0 and (sheet.parcela21 or 0) > 0 then
                                                  sheet.Pontos2 = Pontos2; sheet.parcela21 = (sheet.parcela21 or 0) -1;
                                                              else 
                                                   showMessage("CALMA CARA! Não tem mais nada aqui...")    
@@ -3478,7 +3491,7 @@ local function constructNew_frmDesbravadores23_svg()
     obj._e_event54 = obj.image20:addEventListener("onClick",
         function (_)
             local Pontos2 = (sheet.Pontos2 or 0) -1;
-                                                if Pontos2 >= 0 then
+                                if Pontos2 >= 0 and (sheet.parcela26 or 0) > 0 then
                                                  sheet.Pontos2 = Pontos2; sheet.parcela26 = (sheet.parcela26 or 0) +1;
                                                              else 
                                                   showMessage("CALMA CARA! Não tem mais nada aqui...")    
@@ -3488,7 +3501,7 @@ local function constructNew_frmDesbravadores23_svg()
     obj._e_event55 = obj.image20:addEventListener("onMenu",
         function (_, x, y)
             local Pontos2 = (sheet.Pontos2 or 0) +1;
-                                                if Pontos2 >= 0 then
+                                if Pontos2 >= 0 and (sheet.parcela26 or 0) > 0 then
                                                  sheet.Pontos2 = Pontos2; sheet.parcela26 = (sheet.parcela26 or 0) -1;
                                                              else 
                                                   showMessage("CALMA CARA! Não tem mais nada aqui...")    
@@ -3498,7 +3511,7 @@ local function constructNew_frmDesbravadores23_svg()
     obj._e_event56 = obj.image21:addEventListener("onClick",
         function (_)
             local Pontos2 = (sheet.Pontos2 or 0) -1;
-                                                if Pontos2 >= 0 then
+                                if Pontos2 >= 0 and (sheet.parcela31 or 0) > 0 then
                                                  sheet.Pontos2 = Pontos2; sheet.parcela31 = (sheet.parcela31 or 0) +1;
                                                              else 
                                                   showMessage("CALMA CARA! Não tem mais nada aqui...")    
@@ -3508,7 +3521,7 @@ local function constructNew_frmDesbravadores23_svg()
     obj._e_event57 = obj.image21:addEventListener("onMenu",
         function (_, x, y)
             local Pontos2 = (sheet.Pontos2 or 0) +1;
-                                                if Pontos2 >= 0 then
+                                if Pontos2 >= 0 and (sheet.parcela31 or 0) > 0 then
                                                  sheet.Pontos2 = Pontos2; sheet.parcela31 = (sheet.parcela31 or 0) -1;
                                                              else 
                                                   showMessage("CALMA CARA! Não tem mais nada aqui...")    
@@ -3518,7 +3531,7 @@ local function constructNew_frmDesbravadores23_svg()
     obj._e_event58 = obj.image22:addEventListener("onClick",
         function (_)
             local Pontos2 = (sheet.Pontos2 or 0) -1;
-                                                if Pontos2 >= 0 then
+                                if Pontos2 >= 0 and (sheet.parcela36 or 0) > 0 then
                                                  sheet.Pontos2 = Pontos2; sheet.parcela36 = (sheet.parcela36 or 0) +1;
                                                              else 
                                                   showMessage("CALMA CARA! Não tem mais nada aqui...")    
@@ -3528,7 +3541,7 @@ local function constructNew_frmDesbravadores23_svg()
     obj._e_event59 = obj.image22:addEventListener("onMenu",
         function (_, x, y)
             local Pontos2 = (sheet.Pontos2 or 0) +1;
-                                                if Pontos2 >= 0 then
+                                if Pontos2 >= 0 and (sheet.parcela36 or 0) > 0 then
                                                  sheet.Pontos2 = Pontos2; sheet.parcela36 = (sheet.parcela36 or 0) -1;
                                                              else 
                                                   showMessage("CALMA CARA! Não tem mais nada aqui...")    
@@ -3538,7 +3551,7 @@ local function constructNew_frmDesbravadores23_svg()
     obj._e_event60 = obj.image23:addEventListener("onClick",
         function (_)
             local Pontos2 = (sheet.Pontos2 or 0) -1;
-                                                    if Pontos2 >= 0 then
+                                    if Pontos2 >= 0 and (sheet.parcela41 or 0) > 0 then
                                                     sheet.Pontos2 = Pontos2; sheet.parcela41 = (sheet.parcela41 or 0) +1;
                                                                 else 
                                                     showMessage("CALMA CARA! Não tem mais nada aqui...")    
@@ -3548,7 +3561,7 @@ local function constructNew_frmDesbravadores23_svg()
     obj._e_event61 = obj.image23:addEventListener("onMenu",
         function (_, x, y)
             local Pontos2 = (sheet.Pontos2 or 0) +1;
-                                                    if Pontos2 >= 0 then
+                                    if Pontos2 >= 0 and (sheet.parcela41 or 0) > 0 then
                                                      sheet.Pontos2 = Pontos2; sheet.parcela41 = (sheet.parcela41 or 0) -1;
                                                                  else 
                                                       showMessage("CALMA CARA! Não tem mais nada aqui...")    
@@ -3558,7 +3571,7 @@ local function constructNew_frmDesbravadores23_svg()
     obj._e_event62 = obj.image24:addEventListener("onClick",
         function (_)
             local Pontos2 = (sheet.Pontos2 or 0) -1;
-                        if Pontos2 >= 0 then
+                                if Pontos2 >= 0 and (sheet.parcela46 or 0) > 0 then
                         sheet.Pontos2 = Pontos2; sheet.parcela46 = (sheet.parcela46 or 0) +1;
                                     else 
                         showMessage("CALMA CARA! Não tem mais nada aqui...")    
@@ -3568,7 +3581,7 @@ local function constructNew_frmDesbravadores23_svg()
     obj._e_event63 = obj.image24:addEventListener("onMenu",
         function (_, x, y)
             local Pontos2 = (sheet.Pontos2 or 0) +1;
-                        if Pontos2 >= 0 then
+                                if Pontos2 >= 0 and (sheet.parcela46 or 0) > 0 then
                          sheet.Pontos2 = Pontos2; sheet.parcela46 = (sheet.parcela46 or 0) -1;
                                      else 
                           showMessage("CALMA CARA! Não tem mais nada aqui...")    

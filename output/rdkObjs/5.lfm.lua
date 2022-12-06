@@ -1040,17 +1040,15 @@ local function constructNew_frmLojaDePocoes()
     obj._e_event20 = obj.dataLink1:addEventListener("onChange",
         function (_, field, oldValue, newValue)
             function format_thousand(v)
-            				if type(v) ~= "number" then
-            				  return ""
-            				end
-            			  
-            				local s = string.format("%d", math.floor(v))
-            				local pos = string.len(s) % 3 
-            				if pos == 0 then pos = 3 end
-            				return string.sub(s, 1, pos)
-            				  .. "" .. string.gsub(string.sub(s, pos+1), "(...)", ".%1") 
-            				  .. "" .. string.sub(string.format("%.0f", v - math.floor(v)), 3) 
-            			  end
+            	local s = string.format("%d", math.floor(v))
+            	local pos = string.len(s) % 3 
+            	if pos == 0 then pos = 3 end
+                return string.sub(s, 1, pos)
+            	    .. "" .. string.gsub(string.sub(s, pos+1), "(...)", ".%1") 
+            		.. "" .. string.sub(string.format("%.0f", v - math.floor(v)), 3) 
+            
+            end;
+            	  self.labSoma.text = '$' .. format_thousand(sheet.soma);
         end, obj);
 
     obj._e_event21 = obj.QuantidadeTodos:addEventListener("onDblClick",

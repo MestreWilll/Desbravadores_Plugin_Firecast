@@ -41,18 +41,16 @@
 	<label fontStyle="bold" fontSize="19.0" autoSize="true" wordWrap="false" name="labSoma">
         <dataLink field="Soma">
             <event name="onChange">
-				function format_thousand(v)
-				if type(v) ~= "number" then
-				  return ""
-				end
-			  
-				local s = string.format("%d", math.floor(v))
-				local pos = string.len(s) % 3 
-				if pos == 0 then pos = 3 end
-				return string.sub(s, 1, pos)
-				  .. "" .. string.gsub(string.sub(s, pos+1), "(...)", ".%1") 
-				  .. "" .. string.sub(string.format("%.0f", v - math.floor(v)), 3) 
-			  end
+function format_thousand(v)
+	local s = string.format("%d", math.floor(v))
+	local pos = string.len(s) % 3 
+	if pos == 0 then pos = 3 end
+    return string.sub(s, 1, pos)
+	    .. "" .. string.gsub(string.sub(s, pos+1), "(...)", ".%1") 
+		.. "" .. string.sub(string.format("%.0f", v - math.floor(v)), 3) 
+
+end;
+	  self.labSoma.text = '$' .. format_thousand(sheet.soma);
             </event>
 	    </dataLink>
 	</label>

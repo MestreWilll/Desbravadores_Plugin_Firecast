@@ -89,6 +89,7 @@ local function constructNew_frmDesbravadores()
     obj.image1 = GUI.fromHandle(_obj_newObject("image"));
     obj.image1:setParent(obj.rectangle1);
     obj.image1:setSRC("/Imagens/layoutDinheiro.png");
+    obj.image1:setHitTest(true);
     obj.image1:setLeft(280);
     obj.image1:setTop(-2);
     obj.image1:setWidth(213);
@@ -5276,30 +5277,40 @@ local function avisoPericiafunc();
             	  self.labSoma3.text = '$' .. format_thousand(sheet.soma);
         end, obj);
 
-    obj._e_event1 = obj.troca:addEventListener("onMouseEnter",
+    obj._e_event1 = obj.image1:addEventListener("onClick",
+        function (_)
+            if rrpg.getMesaDe(sheet).meuJogador.isMestre then
+                                    dialogs.inputQuery("Dinheiro inventario", "Quantas moedas quer adicionar?:", "",
+                                       function (valorPreenchido)
+                                          sheet.Soma = (sheet.Soma or 0) + valorPreenchido; 
+                                end);
+                                    end;
+        end, obj);
+
+    obj._e_event2 = obj.troca:addEventListener("onMouseEnter",
         function (_)
             self.troca.src = "/Imagens/vender_off.png"
         end, obj);
 
-    obj._e_event2 = obj.troca:addEventListener("onMouseLeave",
+    obj._e_event3 = obj.troca:addEventListener("onMouseLeave",
         function (_)
             self.troca.src = "/Imagens/vender_on.png"
         end, obj);
 
-    obj._e_event3 = obj.troca:addEventListener("onClick",
+    obj._e_event4 = obj.troca:addEventListener("onClick",
         function (_)
             self.fichaPrincipal.visible = true
                          self.Pag2.visible = false;
         end, obj);
 
-    obj._e_event4 = obj.button1:addEventListener("onClick",
+    obj._e_event5 = obj.button1:addEventListener("onClick",
         function (_)
             -- Usuário clicou no botão de criar novo item.
                                             -- Vamos inserir um novo item no nosso recordList                              
                                             self.rclListaDosItens:append();
         end, obj);
 
-    obj._e_event5 = obj.rclListaDosItens:addEventListener("onSelect",
+    obj._e_event6 = obj.rclListaDosItens:addEventListener("onSelect",
         function (_)
             --[[
                                     Este evento é chamado quando o usuário selecionar/deselecionar itens da lista. Quando o usuário selecionar, vamos fazer nosso dataScopeBox (e todas as tag dentro dele) salvar e carregar dados no   objeto Nodo (NodeDatabase) do item selecionado.
@@ -5312,13 +5323,13 @@ local function avisoPericiafunc();
                                       self.boxDetalhesDoItem.visible = (node ~= nil);
         end, obj);
 
-    obj._e_event6 = obj.testeee:addEventListener("onClick",
+    obj._e_event7 = obj.testeee:addEventListener("onClick",
         function (_)
             self.boxDetalhesDoItem.node.custo = (sheet.custo or 0) + 0;
                     self.boxDetalhesDoItem.node.nivelItem = 0;
         end, obj);
 
-    obj._e_event7 = obj.label1:addEventListener("onClick",
+    obj._e_event8 = obj.label1:addEventListener("onClick",
         function (_)
             if rrpg.getMesaDe(sheet).meuJogador.isMestre then
             		dialogs.inputQuery("Nivel do item", "Level:", "",
@@ -5328,7 +5339,7 @@ local function avisoPericiafunc();
             		end;
         end, obj);
 
-    obj._e_event8 = obj.dataLink2:addEventListener("onChange",
+    obj._e_event9 = obj.dataLink2:addEventListener("onChange",
         function (_, field, oldValue, newValue)
             if self.boxDetalhesDoItem.node.nivelItem == 0 then
                 self.Venda.visible = false;
@@ -5366,7 +5377,7 @@ local function avisoPericiafunc();
               end;
         end, obj);
 
-    obj._e_event9 = obj.colocarDinheiro:addEventListener("onClick",
+    obj._e_event10 = obj.colocarDinheiro:addEventListener("onClick",
         function (_)
             if rrpg.getMesaDe(sheet).meuJogador.isMestre then
             		dialogs.inputQuery("Caixa", "Quantidades:", "",
@@ -5376,7 +5387,7 @@ local function avisoPericiafunc();
             		end;
         end, obj);
 
-    obj._e_event10 = obj.botaoDeVenda:addEventListener("onClick",
+    obj._e_event11 = obj.botaoDeVenda:addEventListener("onClick",
         function (_)
             local custo = tonumber(sheet.custo) or 0;
                 local Soma = tonumber(sheet.Soma) or 0;
@@ -5384,27 +5395,27 @@ local function avisoPericiafunc();
                 custo = ndb.deleteNode(self.boxDetalhesDoItem.node);
         end, obj);
 
-    obj._e_event11 = obj.button2:addEventListener("onClick",
+    obj._e_event12 = obj.button2:addEventListener("onClick",
         function (_)
             self.Massacote.visible = false;
                  self.Pag3.visible = true;
         end, obj);
 
-    obj._e_event12 = obj.image6:addEventListener("onClick",
+    obj._e_event13 = obj.image6:addEventListener("onClick",
         function (_)
             self.fichaPrincipal.visible = true;
                          self.Pag3.visible = false;
                          self.Massacote.visible = false;
         end, obj);
 
-    obj._e_event13 = obj.button3:addEventListener("onClick",
+    obj._e_event14 = obj.button3:addEventListener("onClick",
         function (_)
             -- Usuário clicou no botão de criar novo item.
                                             -- Vamos inserir um novo item no nosso recordList                              
                                             self.rclMascote:append();
         end, obj);
 
-    obj._e_event14 = obj.rclMascote:addEventListener("onSelect",
+    obj._e_event15 = obj.rclMascote:addEventListener("onSelect",
         function (_)
             --[[
                                     Este evento é chamado quando o usuário selecionar/deselecionar itens da lista. Quando o usuário selecionar, vamos fazer nosso dataScopeBox (e todas as tag dentro dele) salvar e carregar dados no   objeto Nodo (NodeDatabase) do item selecionado.
@@ -5416,41 +5427,41 @@ local function avisoPericiafunc();
                                       self.boxDetalhesDoItem33.visible = (node ~= nil);
         end, obj);
 
-    obj._e_event15 = obj.image7:addEventListener("onClick",
+    obj._e_event16 = obj.image7:addEventListener("onClick",
         function (_)
             self.fichaPrincipal.visible = true;
                          self.Pag3.visible = false;
         end, obj);
 
-    obj._e_event16 = obj.button4:addEventListener("onClick",
+    obj._e_event17 = obj.button4:addEventListener("onClick",
         function (_)
             self.rclLista:append();
         end, obj);
 
-    obj._e_event17 = obj.button5:addEventListener("onClick",
+    obj._e_event18 = obj.button5:addEventListener("onClick",
         function (_)
             exibirMensagem();
         end, obj);
 
-    obj._e_event18 = obj.button6:addEventListener("onClick",
+    obj._e_event19 = obj.button6:addEventListener("onClick",
         function (_)
             exibirMensagem2();
         end, obj);
 
-    obj._e_event19 = obj.image12:addEventListener("onClick",
+    obj._e_event20 = obj.image12:addEventListener("onClick",
         function (_)
             self.fichaPrincipal.visible = true;
                          self.Pag1.visible = false;
         end, obj);
 
-    obj._e_event20 = obj.button7:addEventListener("onClick",
+    obj._e_event21 = obj.button7:addEventListener("onClick",
         function (_)
             -- Usuário clicou no botão de criar novo item.
                                             -- Vamos inserir um novo item no nosso recordList                              
                                             self.rclMagias:append();
         end, obj);
 
-    obj._e_event21 = obj.rclMagias:addEventListener("onSelect",
+    obj._e_event22 = obj.rclMagias:addEventListener("onSelect",
         function (_)
             --[[
                                     Este evento é chamado quando o usuário selecionar/deselecionar itens da lista. Quando o usuário selecionar, vamos fazer nosso dataScopeBox (e todas as tag dentro dele) salvar e carregar dados no   objeto Nodo (NodeDatabase) do item selecionado.
@@ -5462,7 +5473,7 @@ local function avisoPericiafunc();
                                       self.boxDetalhesDoItem2.visible = (node ~= nil);
         end, obj);
 
-    obj._e_event22 = obj.image13:addEventListener("onClick",
+    obj._e_event23 = obj.image13:addEventListener("onClick",
         function (_)
             local Pontos2 = (sheet.Pontos2 or 0) -1;
                         if Pontos2 >= 0 then
@@ -5472,7 +5483,7 @@ local function avisoPericiafunc();
                     end;
         end, obj);
 
-    obj._e_event23 = obj.image13:addEventListener("onMenu",
+    obj._e_event24 = obj.image13:addEventListener("onMenu",
         function (_, x, y)
             local Pontos2 = (sheet.Pontos2 or 0) +1;
                         if Pontos2 >= 0 then
@@ -5482,12 +5493,12 @@ local function avisoPericiafunc();
                      end;
         end, obj);
 
-    obj._e_event24 = obj.atualizar:addEventListener("onClick",
+    obj._e_event25 = obj.atualizar:addEventListener("onClick",
         function (_)
             gui.openInBrowser('https://dl.dropboxusercontent.com/s/y1tbl7xcybzbqvt/DesbravadoresOficial.rpk?dl=0')
         end, obj);
 
-    obj._e_event25 = obj.reset:addEventListener("onClick",
+    obj._e_event26 = obj.reset:addEventListener("onClick",
         function (_)
             if Firecast.getMesaDe(sheet).meuJogador.isMestre then
                             sheet.nivel = 0
@@ -5518,7 +5529,7 @@ local function avisoPericiafunc();
                         end
         end, obj);
 
-    obj._e_event26 = obj.image14:addEventListener("onClick",
+    obj._e_event27 = obj.image14:addEventListener("onClick",
         function (_)
             local Pontos2 = (sheet.Pontos2 or 0) -1;
             if Pontos2 >= 0 then
@@ -5528,25 +5539,25 @@ local function avisoPericiafunc();
             end;
         end, obj);
 
-    obj._e_event27 = obj.iconeSkill:addEventListener("onClick",
+    obj._e_event28 = obj.iconeSkill:addEventListener("onClick",
         function (_)
             self.fichaPrincipal.visible = false;
                          self.Pag1.visible = true
         end, obj);
 
-    obj._e_event28 = obj.iconeItens:addEventListener("onClick",
+    obj._e_event29 = obj.iconeItens:addEventListener("onClick",
         function (_)
             self.fichaPrincipal.visible = false;
                          self.Pag2.visible = true
         end, obj);
 
-    obj._e_event29 = obj.mascoteIcone:addEventListener("onClick",
+    obj._e_event30 = obj.mascoteIcone:addEventListener("onClick",
         function (_)
             self.fichaPrincipal.visible = false;
                                       self.Massacote.visible = true;
         end, obj);
 
-    obj._e_event30 = obj.label25:addEventListener("onClick",
+    obj._e_event31 = obj.label25:addEventListener("onClick",
         function (_)
             if Firecast.getMesaDe(sheet).meuJogador.isMestre then
                                     dialogs.inputQuery("atributos", "Quantidade de Pontos:", "",
@@ -5556,7 +5567,7 @@ local function avisoPericiafunc();
                                     end;
         end, obj);
 
-    obj._e_event31 = obj.label26:addEventListener("onClick",
+    obj._e_event32 = obj.label26:addEventListener("onClick",
         function (_)
             if Firecast.getMesaDe(sheet).meuJogador.isMestre then
                                 dialogs.inputQuery("Nível", "Insira a quantidade de pontos:", "",
@@ -5569,17 +5580,17 @@ local function avisoPericiafunc();
                             end
         end, obj);
 
-    obj._e_event32 = obj.botaodeUP:addEventListener("onMenu",
+    obj._e_event33 = obj.botaodeUP:addEventListener("onMenu",
         function (_, x, y)
             nivelvoltarfunc(); 
         end, obj);
 
-    obj._e_event33 = obj.botaodeUP:addEventListener("onClick",
+    obj._e_event34 = obj.botaodeUP:addEventListener("onClick",
         function (_)
             nivelfunc();operadorNivelfunc();avisoPericiafunc();
         end, obj);
 
-    obj._e_event34 = obj.botaon1:addEventListener("onClick",
+    obj._e_event35 = obj.botaon1:addEventListener("onClick",
         function (_)
             local mesaDoPersonagem = Firecast.getMesaDe(sheet);
                                     local msg = ""; 
@@ -5592,7 +5603,7 @@ local function avisoPericiafunc();
                                     end);
         end, obj);
 
-    obj._e_event35 = obj.botaon2:addEventListener("onClick",
+    obj._e_event36 = obj.botaon2:addEventListener("onClick",
         function (_)
             local mesaDoPersonagem = Firecast.getMesaDe(sheet);
                                     local msg = "";
@@ -5606,7 +5617,7 @@ local function avisoPericiafunc();
                                     end);
         end, obj);
 
-    obj._e_event36 = obj.botaon3:addEventListener("onClick",
+    obj._e_event37 = obj.botaon3:addEventListener("onClick",
         function (_)
             local mesaDoPersonagem = Firecast.getMesaDe(sheet);
                                     local msg = ""; 
@@ -5619,7 +5630,7 @@ local function avisoPericiafunc();
                                     end);
         end, obj);
 
-    obj._e_event37 = obj.botaon4:addEventListener("onClick",
+    obj._e_event38 = obj.botaon4:addEventListener("onClick",
         function (_)
             local mesaDoPersonagem = Firecast.getMesaDe(sheet);
                                     local msg = ""; 
@@ -5632,7 +5643,7 @@ local function avisoPericiafunc();
                                     end);
         end, obj);
 
-    obj._e_event38 = obj.botaon5:addEventListener("onClick",
+    obj._e_event39 = obj.botaon5:addEventListener("onClick",
         function (_)
             local mesaDoPersonagem = Firecast.getMesaDe(sheet);
             
@@ -5644,7 +5655,7 @@ local function avisoPericiafunc();
                                     );
         end, obj);
 
-    obj._e_event39 = obj.botaon6:addEventListener("onClick",
+    obj._e_event40 = obj.botaon6:addEventListener("onClick",
         function (_)
             local mesaDoPersonagem = Firecast.getMesaDe(sheet);
                                     local msg = ""; 
@@ -5657,7 +5668,7 @@ local function avisoPericiafunc();
                                     end);
         end, obj);
 
-    obj._e_event40 = obj.botaon7:addEventListener("onClick",
+    obj._e_event41 = obj.botaon7:addEventListener("onClick",
         function (_)
             local mesaDoPersonagem = Firecast.getMesaDe(sheet);
                                     local msg = ""; 
@@ -5670,7 +5681,7 @@ local function avisoPericiafunc();
                                     end);
         end, obj);
 
-    obj._e_event41 = obj.botaon8:addEventListener("onClick",
+    obj._e_event42 = obj.botaon8:addEventListener("onClick",
         function (_)
             local mesaDoPersonagem = Firecast.getMesaDe(sheet);
                                         local msg = ""; 
@@ -5683,7 +5694,7 @@ local function avisoPericiafunc();
                                         end);
         end, obj);
 
-    obj._e_event42 = obj.botaon9:addEventListener("onClick",
+    obj._e_event43 = obj.botaon9:addEventListener("onClick",
         function (_)
             local mesaDoPersonagem = Firecast.getMesaDe(sheet);
                                         local msg = ""; 
@@ -5696,7 +5707,7 @@ local function avisoPericiafunc();
                                         end);
         end, obj);
 
-    obj._e_event43 = obj.botaon10:addEventListener("onClick",
+    obj._e_event44 = obj.botaon10:addEventListener("onClick",
         function (_)
             local mesaDoPersonagem = Firecast.getMesaDe(sheet);
                                     local msg = ""; 
@@ -5709,7 +5720,7 @@ local function avisoPericiafunc();
                                     end);
         end, obj);
 
-    obj._e_event44 = obj.image15:addEventListener("onClick",
+    obj._e_event45 = obj.image15:addEventListener("onClick",
         function (_)
             local Pontos2 = (sheet.Pontos2 or 0) -1;
                 if Pontos2 >= 0 then
@@ -5719,7 +5730,7 @@ local function avisoPericiafunc();
              end;
         end, obj);
 
-    obj._e_event45 = obj.image15:addEventListener("onMenu",
+    obj._e_event46 = obj.image15:addEventListener("onMenu",
         function (_, x, y)
             local Pontos2 = (sheet.Pontos2 or 0) +1;
             
@@ -5730,7 +5741,7 @@ local function avisoPericiafunc();
              end;
         end, obj);
 
-    obj._e_event46 = obj.image16:addEventListener("onClick",
+    obj._e_event47 = obj.image16:addEventListener("onClick",
         function (_)
             local Pontos2 = (sheet.Pontos2 or 0) -1;
                                         if Pontos2 >= 0 then
@@ -5740,7 +5751,7 @@ local function avisoPericiafunc();
                                      end;
         end, obj);
 
-    obj._e_event47 = obj.image16:addEventListener("onMenu",
+    obj._e_event48 = obj.image16:addEventListener("onMenu",
         function (_, x, y)
             local Pontos2 = (sheet.Pontos2 or 0) +1;
             
@@ -5751,7 +5762,7 @@ local function avisoPericiafunc();
                                    end;
         end, obj);
 
-    obj._e_event48 = obj.image17:addEventListener("onClick",
+    obj._e_event49 = obj.image17:addEventListener("onClick",
         function (_)
             local Pontos2 = (sheet.Pontos2 or 0) -1;
                                             if Pontos2 >= 0 then
@@ -5761,7 +5772,7 @@ local function avisoPericiafunc();
                                          end;
         end, obj);
 
-    obj._e_event49 = obj.image17:addEventListener("onMenu",
+    obj._e_event50 = obj.image17:addEventListener("onMenu",
         function (_, x, y)
             local Pontos2 = (sheet.Pontos2 or 0) +1;
             
@@ -5772,7 +5783,7 @@ local function avisoPericiafunc();
                                        end;
         end, obj);
 
-    obj._e_event50 = obj.image18:addEventListener("onClick",
+    obj._e_event51 = obj.image18:addEventListener("onClick",
         function (_)
             local Pontos2 = (sheet.Pontos2 or 0) -1;
                                                 if Pontos2 >= 0 then
@@ -5782,7 +5793,7 @@ local function avisoPericiafunc();
                                              end;
         end, obj);
 
-    obj._e_event51 = obj.image18:addEventListener("onMenu",
+    obj._e_event52 = obj.image18:addEventListener("onMenu",
         function (_, x, y)
             local Pontos2 = (sheet.Pontos2 or 0) +1;
             
@@ -5793,7 +5804,7 @@ local function avisoPericiafunc();
                                            end;
         end, obj);
 
-    obj._e_event52 = obj.image19:addEventListener("onClick",
+    obj._e_event53 = obj.image19:addEventListener("onClick",
         function (_)
             local Pontos2 = (sheet.Pontos2 or 0) -1;
                                                     if Pontos2 >= 0 then
@@ -5803,7 +5814,7 @@ local function avisoPericiafunc();
                                                  end;
         end, obj);
 
-    obj._e_event53 = obj.image19:addEventListener("onMenu",
+    obj._e_event54 = obj.image19:addEventListener("onMenu",
         function (_, x, y)
             local Pontos2 = (sheet.Pontos2 or 0) +1;
             
@@ -5814,7 +5825,7 @@ local function avisoPericiafunc();
                                                end;
         end, obj);
 
-    obj._e_event54 = obj.image20:addEventListener("onClick",
+    obj._e_event55 = obj.image20:addEventListener("onClick",
         function (_)
             local Pontos2 = (sheet.Pontos2 or 0) -1;
                                                     if Pontos2 >= 0 then
@@ -5824,7 +5835,7 @@ local function avisoPericiafunc();
                                                  end;
         end, obj);
 
-    obj._e_event55 = obj.image20:addEventListener("onMenu",
+    obj._e_event56 = obj.image20:addEventListener("onMenu",
         function (_, x, y)
             local Pontos2 = (sheet.Pontos2 or 0) +1;
             
@@ -5835,7 +5846,7 @@ local function avisoPericiafunc();
                                                end;
         end, obj);
 
-    obj._e_event56 = obj.image21:addEventListener("onClick",
+    obj._e_event57 = obj.image21:addEventListener("onClick",
         function (_)
             local Pontos2 = (sheet.Pontos2 or 0) -1;
                                                     if Pontos2 >= 0 then
@@ -5845,7 +5856,7 @@ local function avisoPericiafunc();
                                                  end;
         end, obj);
 
-    obj._e_event57 = obj.image21:addEventListener("onMenu",
+    obj._e_event58 = obj.image21:addEventListener("onMenu",
         function (_, x, y)
             local Pontos2 = (sheet.Pontos2 or 0) +1;
             
@@ -5856,7 +5867,7 @@ local function avisoPericiafunc();
                                                end;
         end, obj);
 
-    obj._e_event58 = obj.image22:addEventListener("onClick",
+    obj._e_event59 = obj.image22:addEventListener("onClick",
         function (_)
             local Pontos2 = (sheet.Pontos2 or 0) -1;
                                                     if Pontos2 >= 0 then
@@ -5866,7 +5877,7 @@ local function avisoPericiafunc();
                                                  end;
         end, obj);
 
-    obj._e_event59 = obj.image22:addEventListener("onMenu",
+    obj._e_event60 = obj.image22:addEventListener("onMenu",
         function (_, x, y)
             local Pontos2 = (sheet.Pontos2 or 0) +1;
             
@@ -5877,7 +5888,7 @@ local function avisoPericiafunc();
                                                end;
         end, obj);
 
-    obj._e_event60 = obj.image23:addEventListener("onClick",
+    obj._e_event61 = obj.image23:addEventListener("onClick",
         function (_)
             local Pontos2 = (sheet.Pontos2 or 0) -1;
                                                     if Pontos2 >= 0 then
@@ -5887,7 +5898,7 @@ local function avisoPericiafunc();
                                                  end;
         end, obj);
 
-    obj._e_event61 = obj.image23:addEventListener("onMenu",
+    obj._e_event62 = obj.image23:addEventListener("onMenu",
         function (_, x, y)
             local Pontos2 = (sheet.Pontos2 or 0) +1;
             
@@ -5897,7 +5908,7 @@ local function avisoPericiafunc();
                                                   showMessage("Você não pode reduzir mais.") end;
         end, obj);
 
-    obj._e_event62 = obj.image24:addEventListener("onClick",
+    obj._e_event63 = obj.image24:addEventListener("onClick",
         function (_)
             local Pontos2 = (sheet.Pontos2 or 0) -1;
                                                     if Pontos2 >= 0 then
@@ -5907,7 +5918,7 @@ local function avisoPericiafunc();
                                                  end;
         end, obj);
 
-    obj._e_event63 = obj.image24:addEventListener("onMenu",
+    obj._e_event64 = obj.image24:addEventListener("onMenu",
         function (_, x, y)
             local Pontos2 = (sheet.Pontos2 or 0) +1;
             
@@ -5917,7 +5928,7 @@ local function avisoPericiafunc();
                       showMessage("Você não pode reduzir mais.") end;
         end, obj);
 
-    obj._e_event64 = obj.dataLink4:addEventListener("onChange",
+    obj._e_event65 = obj.dataLink4:addEventListener("onChange",
         function (_, field, oldValue, newValue)
             function format_thousand(v)
             local s = string.format("%d", math.floor(v))
@@ -5931,12 +5942,12 @@ local function avisoPericiafunc();
             self.labSoma2.text = '$' .. format_thousand(sheet.soma);
         end, obj);
 
-    obj._e_event65 = obj.imageNivel:addEventListener("onClick",
+    obj._e_event66 = obj.imageNivel:addEventListener("onClick",
         function (_)
             imageNivelfunc();
         end, obj);
 
-    obj._e_event66 = obj.dataLink5:addEventListener("onChange",
+    obj._e_event67 = obj.dataLink5:addEventListener("onChange",
         function (_, field, oldValue, newValue)
             sheet.resultadoSoma = (tonumber(sheet.parcela1) or 0) +
             					                         (tonumber(sheet.parcela2) or 0) + 
@@ -5946,7 +5957,7 @@ local function avisoPericiafunc();
                                                         (tonumber(sheet.parcela52) or 0);
         end, obj);
 
-    obj._e_event67 = obj.dataLink6:addEventListener("onChange",
+    obj._e_event68 = obj.dataLink6:addEventListener("onChange",
         function (_, field, oldValue, newValue)
             sheet.resultadoSoma2 = (tonumber(sheet.parcela6) or 0) +
             					                         (tonumber(sheet.parcela7) or 0) + 
@@ -5956,7 +5967,7 @@ local function avisoPericiafunc();
                                                         (tonumber(sheet.parcela53) or 0);
         end, obj);
 
-    obj._e_event68 = obj.dataLink7:addEventListener("onChange",
+    obj._e_event69 = obj.dataLink7:addEventListener("onChange",
         function (_, field, oldValue, newValue)
             sheet.resultadoSoma3 = (tonumber(sheet.parcela11) or 0) +
             					                         (tonumber(sheet.parcela12) or 0) + 
@@ -5966,7 +5977,7 @@ local function avisoPericiafunc();
                                                         (tonumber(sheet.parcela54) or 0);
         end, obj);
 
-    obj._e_event69 = obj.dataLink8:addEventListener("onChange",
+    obj._e_event70 = obj.dataLink8:addEventListener("onChange",
         function (_, field, oldValue, newValue)
             sheet.resultadoSoma4 = (tonumber(sheet.parcela16) or 0) +
             					                         (tonumber(sheet.parcela17) or 0) + 
@@ -5976,7 +5987,7 @@ local function avisoPericiafunc();
                                                         (tonumber(sheet.parcela55) or 0);
         end, obj);
 
-    obj._e_event70 = obj.dataLink9:addEventListener("onChange",
+    obj._e_event71 = obj.dataLink9:addEventListener("onChange",
         function (_, field, oldValue, newValue)
             sheet.resultadoSoma5 = (tonumber(sheet.parcela21) or 0) +
             					                         (tonumber(sheet.parcela22) or 0) + 
@@ -5986,7 +5997,7 @@ local function avisoPericiafunc();
                                                         (tonumber(sheet.parcela56) or 0);
         end, obj);
 
-    obj._e_event71 = obj.dataLink10:addEventListener("onChange",
+    obj._e_event72 = obj.dataLink10:addEventListener("onChange",
         function (_, field, oldValue, newValue)
             sheet.resultadoSoma6 = (tonumber(sheet.parcela26) or 0) +
             					                         (tonumber(sheet.parcela27) or 0) + 
@@ -5996,7 +6007,7 @@ local function avisoPericiafunc();
                                                         (tonumber(sheet.parcela57) or 0);
         end, obj);
 
-    obj._e_event72 = obj.dataLink11:addEventListener("onChange",
+    obj._e_event73 = obj.dataLink11:addEventListener("onChange",
         function (_, field, oldValue, newValue)
             sheet.resultadoSoma7 = (tonumber(sheet.parcela31) or 0) +
             					                         (tonumber(sheet.parcela32) or 0) + 
@@ -6006,7 +6017,7 @@ local function avisoPericiafunc();
                                                         (tonumber(sheet.parcela58) or 0);
         end, obj);
 
-    obj._e_event73 = obj.dataLink12:addEventListener("onChange",
+    obj._e_event74 = obj.dataLink12:addEventListener("onChange",
         function (_, field, oldValue, newValue)
             sheet.resultadoSoma8 = (tonumber(sheet.parcela36) or 0) +
             					                         (tonumber(sheet.parcela37) or 0) + 
@@ -6016,7 +6027,7 @@ local function avisoPericiafunc();
                                                         (tonumber(sheet.parcela59) or 0);
         end, obj);
 
-    obj._e_event74 = obj.dataLink13:addEventListener("onChange",
+    obj._e_event75 = obj.dataLink13:addEventListener("onChange",
         function (_, field, oldValue, newValue)
             sheet.resultadoSoma9 = (tonumber(sheet.parcela41) or 0) +
             					                         (tonumber(sheet.parcela42) or 0) + 
@@ -6026,7 +6037,7 @@ local function avisoPericiafunc();
                                                         (tonumber(sheet.parcela60) or 0);
         end, obj);
 
-    obj._e_event75 = obj.dataLink14:addEventListener("onChange",
+    obj._e_event76 = obj.dataLink14:addEventListener("onChange",
         function (_, field, oldValue, newValue)
             sheet.resultadoSoma10 = (tonumber(sheet.parcela46) or 0) +
             					                         (tonumber(sheet.parcela47) or 0) + 
@@ -6036,7 +6047,7 @@ local function avisoPericiafunc();
                                                         (tonumber(sheet.parcela61) or 0);
         end, obj);
 
-    obj._e_event76 = obj.button8:addEventListener("onClick",
+    obj._e_event77 = obj.button8:addEventListener("onClick",
         function (_)
             if rrpg.getMesaDe(sheet).meuJogador.isMestre then
                      
@@ -6046,7 +6057,7 @@ local function avisoPericiafunc();
             		 end;
         end, obj);
 
-    obj._e_event77 = obj.button8:addEventListener("onMenu",
+    obj._e_event78 = obj.button8:addEventListener("onMenu",
         function (_, x, y)
             if rrpg.getMesaDe(sheet).meuJogador.isMestre then
                      sheet.nivel = (sheet.nivel or 0) -1;
@@ -6055,7 +6066,7 @@ local function avisoPericiafunc();
             		 end;
         end, obj);
 
-    obj._e_event78 = obj.dataLink15:addEventListener("onChange",
+    obj._e_event79 = obj.dataLink15:addEventListener("onChange",
         function (_, field, oldValue, newValue)
             if sheet.nivel >= 1 then
                 self.P1.visible = true
@@ -6231,17 +6242,17 @@ local function avisoPericiafunc();
                 end;
         end, obj);
 
-    obj._e_event79 = obj.troca3:addEventListener("onMouseEnter",
+    obj._e_event80 = obj.troca3:addEventListener("onMouseEnter",
         function (_)
             self.troca3.src = "/Imagens/vender_off.png"
         end, obj);
 
-    obj._e_event80 = obj.troca3:addEventListener("onMouseLeave",
+    obj._e_event81 = obj.troca3:addEventListener("onMouseLeave",
         function (_)
             self.troca3.src = "/Imagens/vender_on.png"
         end, obj);
 
-    obj._e_event81 = obj.troca3:addEventListener("onClick",
+    obj._e_event82 = obj.troca3:addEventListener("onClick",
         function (_)
             self.anotacaoPrincipal.visible = true;
                          self.textEditorAntigo.visible = true;
@@ -6252,14 +6263,14 @@ local function avisoPericiafunc();
                          self.AnotacaoTotal.visible = false
         end, obj);
 
-    obj._e_event82 = obj.button9:addEventListener("onClick",
+    obj._e_event83 = obj.button9:addEventListener("onClick",
         function (_)
             -- Usuário clicou no botão de criar novo item.
                                             -- Vamos inserir um novo item no nosso recordList                              
                                             self.rclListaDosItens3:append();
         end, obj);
 
-    obj._e_event83 = obj.rclListaDosItens3:addEventListener("onSelect",
+    obj._e_event84 = obj.rclListaDosItens3:addEventListener("onSelect",
         function (_)
             --[[
                                     Este evento é chamado quando o usuário selecionar/deselecionar itens da lista. Quando o usuário selecionar, vamos fazer nosso dataScopeBox (e todas as tag dentro dele) salvar e carregar dados no   objeto Nodo (NodeDatabase) do item selecionado.
@@ -6271,12 +6282,12 @@ local function avisoPericiafunc();
                                       self.boxDetalhesDoItem3.visible = (node ~= nil);
         end, obj);
 
-    obj._e_event84 = obj.excluirContato:addEventListener("onDblClick",
+    obj._e_event85 = obj.excluirContato:addEventListener("onDblClick",
         function (_)
             ndb.deleteNode(self.boxDetalhesDoItem3.node);
         end, obj);
 
-    obj._e_event85 = obj.listaDeContatos:addEventListener("onClick",
+    obj._e_event86 = obj.listaDeContatos:addEventListener("onClick",
         function (_)
             self.anotacaoPrincipal.visible = false;
                          self.textEditorAntigo.visible = false;
@@ -6287,31 +6298,31 @@ local function avisoPericiafunc();
                          self.AnotacaoTotal.visible = true
         end, obj);
 
-    obj._e_event86 = obj.button10:addEventListener("onClick",
+    obj._e_event87 = obj.button10:addEventListener("onClick",
         function (_)
             self.Anotacao.visible = false;
                    self.richEdit2.visible = true
         end, obj);
 
-    obj._e_event87 = obj.button11:addEventListener("onClick",
+    obj._e_event88 = obj.button11:addEventListener("onClick",
         function (_)
             self.Anotacao.visible = true;
                    self.richEdit2.visible = false
         end, obj);
 
-    obj._e_event88 = obj.button12:addEventListener("onClick",
+    obj._e_event89 = obj.button12:addEventListener("onClick",
         function (_)
             self.Historia.visible = false;
                    self.richEdit1.visible = true
         end, obj);
 
-    obj._e_event89 = obj.button13:addEventListener("onClick",
+    obj._e_event90 = obj.button13:addEventListener("onClick",
         function (_)
             self.Historia.visible = true;
                    self.richEdit1.visible = false
         end, obj);
 
-    obj._e_event90 = obj.image36:addEventListener("onClick",
+    obj._e_event91 = obj.image36:addEventListener("onClick",
         function (_)
             if rrpg.getMesaDe(sheet).meuJogador.isMestre then
             		dialogs.inputQuery("Caixa de Poções", "Quantidade de Poções:", "",
@@ -6321,7 +6332,7 @@ local function avisoPericiafunc();
             		end;
         end, obj);
 
-    obj._e_event91 = obj.comprar1:addEventListener("onClick",
+    obj._e_event92 = obj.comprar1:addEventListener("onClick",
         function (_)
             local Soma = (sheet.Soma or 0) -70;
             						         if Soma >= 0 then
@@ -6333,7 +6344,7 @@ local function avisoPericiafunc();
             		end;
         end, obj);
 
-    obj._e_event92 = obj.button14:addEventListener("onClick",
+    obj._e_event93 = obj.button14:addEventListener("onClick",
         function (_)
             local quantidade = (sheet.quantidade or 0) - 1;
                                                 if quantidade >= 0 then
@@ -6345,7 +6356,7 @@ local function avisoPericiafunc();
                                       end;
         end, obj);
 
-    obj._e_event93 = obj.image37:addEventListener("onClick",
+    obj._e_event94 = obj.image37:addEventListener("onClick",
         function (_)
             if rrpg.getMesaDe(sheet).meuJogador.isMestre then
             		dialogs.inputQuery("Caixa de Poções", "Quantidade de Poções:", "",
@@ -6355,7 +6366,7 @@ local function avisoPericiafunc();
             		end;
         end, obj);
 
-    obj._e_event94 = obj.comprar2:addEventListener("onClick",
+    obj._e_event95 = obj.comprar2:addEventListener("onClick",
         function (_)
             local Soma = (sheet.Soma or 0) - 40; 
                                                 if Soma >= 0 then
@@ -6367,7 +6378,7 @@ local function avisoPericiafunc();
                                       end;
         end, obj);
 
-    obj._e_event95 = obj.button15:addEventListener("onClick",
+    obj._e_event96 = obj.button15:addEventListener("onClick",
         function (_)
             local quantidade2 = (sheet.quantidade2 or 0) - 1;
                                                 if quantidade2 >= 0 then
@@ -6380,7 +6391,7 @@ local function avisoPericiafunc();
                                       end;
         end, obj);
 
-    obj._e_event96 = obj.image38:addEventListener("onClick",
+    obj._e_event97 = obj.image38:addEventListener("onClick",
         function (_)
             if rrpg.getMesaDe(sheet).meuJogador.isMestre then
             		dialogs.inputQuery("Caixa de Poções", "Quantidade de Poções:", "",
@@ -6390,7 +6401,7 @@ local function avisoPericiafunc();
             		end;
         end, obj);
 
-    obj._e_event97 = obj.comprar3:addEventListener("onClick",
+    obj._e_event98 = obj.comprar3:addEventListener("onClick",
         function (_)
             local Soma = (sheet.Soma or 0) - 20; 
                                                 if Soma >= 0 then
@@ -6402,7 +6413,7 @@ local function avisoPericiafunc();
                                       end;
         end, obj);
 
-    obj._e_event98 = obj.button16:addEventListener("onClick",
+    obj._e_event99 = obj.button16:addEventListener("onClick",
         function (_)
             local quantidade3 = (sheet.quantidade3 or 0) - 1;
                                                 if quantidade3 >= 0 then
@@ -6415,7 +6426,7 @@ local function avisoPericiafunc();
                                       end;
         end, obj);
 
-    obj._e_event99 = obj.image39:addEventListener("onClick",
+    obj._e_event100 = obj.image39:addEventListener("onClick",
         function (_)
             if rrpg.getMesaDe(sheet).meuJogador.isMestre then
             		dialogs.inputQuery("Caixa de Poções", "Quantidade de Poções:", "",
@@ -6425,7 +6436,7 @@ local function avisoPericiafunc();
             		end;
         end, obj);
 
-    obj._e_event100 = obj.comprar4:addEventListener("onClick",
+    obj._e_event101 = obj.comprar4:addEventListener("onClick",
         function (_)
             local Soma = (sheet.Soma or 0) - 70; 
                                                 if Soma >= 0 then
@@ -6437,7 +6448,7 @@ local function avisoPericiafunc();
                                       end;
         end, obj);
 
-    obj._e_event101 = obj.button17:addEventListener("onClick",
+    obj._e_event102 = obj.button17:addEventListener("onClick",
         function (_)
             local quantidade4 = (sheet.quantidade4 or 0) - 1;
                                                 if quantidade4 >= 0 then
@@ -6449,7 +6460,7 @@ local function avisoPericiafunc();
                                       end;
         end, obj);
 
-    obj._e_event102 = obj.image40:addEventListener("onClick",
+    obj._e_event103 = obj.image40:addEventListener("onClick",
         function (_)
             if rrpg.getMesaDe(sheet).meuJogador.isMestre then
             		dialogs.inputQuery("Caixa de Poções", "Quantidade de Poções:", "",
@@ -6459,7 +6470,7 @@ local function avisoPericiafunc();
             		end;
         end, obj);
 
-    obj._e_event103 = obj.comprar5:addEventListener("onClick",
+    obj._e_event104 = obj.comprar5:addEventListener("onClick",
         function (_)
             local Soma = (sheet.Soma or 0) - 40; 
                                                 if Soma >= 0 then
@@ -6471,7 +6482,7 @@ local function avisoPericiafunc();
                                       end;
         end, obj);
 
-    obj._e_event104 = obj.button18:addEventListener("onClick",
+    obj._e_event105 = obj.button18:addEventListener("onClick",
         function (_)
             local quantidade5 = (sheet.quantidade5 or 0) - 1;
                                                 if quantidade5 >= 0 then
@@ -6483,7 +6494,7 @@ local function avisoPericiafunc();
                                       end;
         end, obj);
 
-    obj._e_event105 = obj.image41:addEventListener("onClick",
+    obj._e_event106 = obj.image41:addEventListener("onClick",
         function (_)
             if rrpg.getMesaDe(sheet).meuJogador.isMestre then
             		dialogs.inputQuery("Caixa de Poções", "Quantidade de Poções:", "",
@@ -6493,7 +6504,7 @@ local function avisoPericiafunc();
             		end;
         end, obj);
 
-    obj._e_event106 = obj.comprar6:addEventListener("onClick",
+    obj._e_event107 = obj.comprar6:addEventListener("onClick",
         function (_)
             local Soma = (sheet.Soma or 0) - 20; 
                                                 if Soma >= 0 then
@@ -6505,7 +6516,7 @@ local function avisoPericiafunc();
                                       end;
         end, obj);
 
-    obj._e_event107 = obj.button19:addEventListener("onClick",
+    obj._e_event108 = obj.button19:addEventListener("onClick",
         function (_)
             local quantidade6 = (sheet.quantidade6 or 0) - 1;
                                                 if quantidade6 >= 0 then
@@ -6517,11 +6528,11 @@ local function avisoPericiafunc();
                                       end;
         end, obj);
 
-    obj._e_event108 = obj.button20:addEventListener("onClick",
+    obj._e_event109 = obj.button20:addEventListener("onClick",
         function (_)
         end, obj);
 
-    obj._e_event109 = obj.button20:addEventListener("onClick",
+    obj._e_event110 = obj.button20:addEventListener("onClick",
         function (_)
             if rrpg.getMesaDe(sheet).meuJogador.isMestre then
             		dialogs.inputQuery("Carteira", "Novo valor:", "",
@@ -6531,7 +6542,7 @@ local function avisoPericiafunc();
             		end;
         end, obj);
 
-    obj._e_event110 = obj.dataLink16:addEventListener("onChange",
+    obj._e_event111 = obj.dataLink16:addEventListener("onChange",
         function (_, field, oldValue, newValue)
             function format_thousand(v)
             	local s = string.format("%d", math.floor(v))
@@ -6545,7 +6556,7 @@ local function avisoPericiafunc();
             	  self.labSoma.text = '$' .. format_thousand(sheet.soma);
         end, obj);
 
-    obj._e_event111 = obj.QuantidadeTodos:addEventListener("onDblClick",
+    obj._e_event112 = obj.QuantidadeTodos:addEventListener("onDblClick",
         function (_)
             if rrpg.getMesaDe(sheet).meuJogador.isMestre then
             		sheet.quantidade = 0
@@ -6564,7 +6575,7 @@ local function avisoPericiafunc();
             		end;
         end, obj);
 
-    obj._e_event112 = obj.Skil500:addEventListener("onClick",
+    obj._e_event113 = obj.Skil500:addEventListener("onClick",
         function (_)
             if rrpg.getMesaDe(sheet).meuJogador.isMestre then
             	 local Soma = (sheet.Soma or 0) -500;
@@ -6576,7 +6587,7 @@ local function avisoPericiafunc();
             		end;
         end, obj);
 
-    obj._e_event113 = obj.Skill501:addEventListener("onClick",
+    obj._e_event114 = obj.Skill501:addEventListener("onClick",
         function (_)
             if rrpg.getMesaDe(sheet).meuJogador.isMestre then
             	  local Soma = (sheet.Soma or 0) +500;
@@ -6588,17 +6599,17 @@ local function avisoPericiafunc();
             		 end;
         end, obj);
 
-    obj._e_event114 = obj.Caixa11:addEventListener("onMouseEnter",
+    obj._e_event115 = obj.Caixa11:addEventListener("onMouseEnter",
         function (_)
             self.Caixa11.src = "/Imagens/vender_off.png"
         end, obj);
 
-    obj._e_event115 = obj.Caixa11:addEventListener("onMouseLeave",
+    obj._e_event116 = obj.Caixa11:addEventListener("onMouseLeave",
         function (_)
             self.Caixa11.src = "/Imagens/vender_on.png"
         end, obj);
 
-    obj._e_event116 = obj.Caixa11:addEventListener("onClick",
+    obj._e_event117 = obj.Caixa11:addEventListener("onClick",
         function (_)
             local quantidade = (sheet.quantidade or 0) -1;
             			      if quantidade >= 0 then
@@ -6612,17 +6623,17 @@ local function avisoPericiafunc();
                                       end;
         end, obj);
 
-    obj._e_event117 = obj.Caixa12:addEventListener("onMouseEnter",
+    obj._e_event118 = obj.Caixa12:addEventListener("onMouseEnter",
         function (_)
             self.Caixa12.src = "/Imagens/vender_off.png"
         end, obj);
 
-    obj._e_event118 = obj.Caixa12:addEventListener("onMouseLeave",
+    obj._e_event119 = obj.Caixa12:addEventListener("onMouseLeave",
         function (_)
             self.Caixa12.src = "/Imagens/vender_on.png"
         end, obj);
 
-    obj._e_event119 = obj.Caixa12:addEventListener("onClick",
+    obj._e_event120 = obj.Caixa12:addEventListener("onClick",
         function (_)
             local quantidade2 = (sheet.quantidade2 or 0) -1;
             			      if quantidade2 >= 0 then
@@ -6636,17 +6647,17 @@ local function avisoPericiafunc();
                                       end;
         end, obj);
 
-    obj._e_event120 = obj.Caixa13:addEventListener("onMouseEnter",
+    obj._e_event121 = obj.Caixa13:addEventListener("onMouseEnter",
         function (_)
             self.Caixa13.src = "/Imagens/vender_off.png"
         end, obj);
 
-    obj._e_event121 = obj.Caixa13:addEventListener("onMouseLeave",
+    obj._e_event122 = obj.Caixa13:addEventListener("onMouseLeave",
         function (_)
             self.Caixa13.src = "/Imagens/vender_on.png"
         end, obj);
 
-    obj._e_event122 = obj.Caixa13:addEventListener("onClick",
+    obj._e_event123 = obj.Caixa13:addEventListener("onClick",
         function (_)
             local quantidade3 = (sheet.quantidade3 or 0) -1;
             			      if quantidade3 >= 0 then
@@ -6660,17 +6671,17 @@ local function avisoPericiafunc();
                                       end;
         end, obj);
 
-    obj._e_event123 = obj.Caixa14:addEventListener("onMouseEnter",
+    obj._e_event124 = obj.Caixa14:addEventListener("onMouseEnter",
         function (_)
             self.Caixa14.src = "/Imagens/vender_off.png"
         end, obj);
 
-    obj._e_event124 = obj.Caixa14:addEventListener("onMouseLeave",
+    obj._e_event125 = obj.Caixa14:addEventListener("onMouseLeave",
         function (_)
             self.Caixa14.src = "/Imagens/vender_on.png"
         end, obj);
 
-    obj._e_event125 = obj.Caixa14:addEventListener("onClick",
+    obj._e_event126 = obj.Caixa14:addEventListener("onClick",
         function (_)
             local quantidade4 = (sheet.quantidade4 or 0) -1;
             			      if quantidade4 >= 0 then
@@ -6684,17 +6695,17 @@ local function avisoPericiafunc();
                                       end;
         end, obj);
 
-    obj._e_event126 = obj.Caixa15:addEventListener("onMouseEnter",
+    obj._e_event127 = obj.Caixa15:addEventListener("onMouseEnter",
         function (_)
             self.Caixa15.src = "/Imagens/vender_off.png"
         end, obj);
 
-    obj._e_event127 = obj.Caixa15:addEventListener("onMouseLeave",
+    obj._e_event128 = obj.Caixa15:addEventListener("onMouseLeave",
         function (_)
             self.Caixa15.src = "/Imagens/vender_on.png"
         end, obj);
 
-    obj._e_event128 = obj.Caixa15:addEventListener("onClick",
+    obj._e_event129 = obj.Caixa15:addEventListener("onClick",
         function (_)
             local quantidade5 = (sheet.quantidade5 or 0) -1;
             			      if quantidade5 >= 0 then
@@ -6708,17 +6719,17 @@ local function avisoPericiafunc();
                                       end;
         end, obj);
 
-    obj._e_event129 = obj.Caixa16:addEventListener("onMouseEnter",
+    obj._e_event130 = obj.Caixa16:addEventListener("onMouseEnter",
         function (_)
             self.Caixa16.src = "/Imagens/vender_off.png"
         end, obj);
 
-    obj._e_event130 = obj.Caixa16:addEventListener("onMouseLeave",
+    obj._e_event131 = obj.Caixa16:addEventListener("onMouseLeave",
         function (_)
             self.Caixa16.src = "/Imagens/vender_on.png"
         end, obj);
 
-    obj._e_event131 = obj.Caixa16:addEventListener("onClick",
+    obj._e_event132 = obj.Caixa16:addEventListener("onClick",
         function (_)
             local quantidade6 = (sheet.quantidade6 or 0) -1;
             			      if quantidade6 >= 0 then
@@ -6732,51 +6743,51 @@ local function avisoPericiafunc();
                                       end;
         end, obj);
 
-    obj._e_event132 = obj.on:addEventListener("onClick",
+    obj._e_event133 = obj.on:addEventListener("onClick",
         function (_)
             if rrpg.getMesaDe(sheet).meuJogador.isMestre then
                  sheet.olho = 0
                  end;
         end, obj);
 
-    obj._e_event133 = obj.off:addEventListener("onClick",
+    obj._e_event134 = obj.off:addEventListener("onClick",
         function (_)
             if rrpg.getMesaDe(sheet).meuJogador.isMestre then   
                  sheet.olho = 1
                  end;
         end, obj);
 
-    obj._e_event134 = obj.Xn1:addEventListener("onClick",
+    obj._e_event135 = obj.Xn1:addEventListener("onClick",
         function (_)
             showMessage("Você precisa estar perto de uma loja para efetuar a compra")
         end, obj);
 
-    obj._e_event135 = obj.Xn2:addEventListener("onClick",
+    obj._e_event136 = obj.Xn2:addEventListener("onClick",
         function (_)
             showMessage("Você precisa estar perto de uma loja para efetuar a compra")
         end, obj);
 
-    obj._e_event136 = obj.Xn3:addEventListener("onClick",
+    obj._e_event137 = obj.Xn3:addEventListener("onClick",
         function (_)
             showMessage("Você precisa estar perto de uma loja para efetuar a compra")
         end, obj);
 
-    obj._e_event137 = obj.Xn4:addEventListener("onClick",
+    obj._e_event138 = obj.Xn4:addEventListener("onClick",
         function (_)
             showMessage("Você precisa estar perto de uma loja para efetuar a compra")
         end, obj);
 
-    obj._e_event138 = obj.Xn5:addEventListener("onClick",
+    obj._e_event139 = obj.Xn5:addEventListener("onClick",
         function (_)
             showMessage("Você precisa estar perto de uma loja para efetuar a compra")
         end, obj);
 
-    obj._e_event139 = obj.Xn6:addEventListener("onClick",
+    obj._e_event140 = obj.Xn6:addEventListener("onClick",
         function (_)
             showMessage("Você precisa estar perto de uma loja para efetuar a compra")
         end, obj);
 
-    obj._e_event140 = obj.dataLink17:addEventListener("onChange",
+    obj._e_event141 = obj.dataLink17:addEventListener("onChange",
         function (_, field, oldValue, newValue)
             if sheet.olho >= 0 then;
                 self.on.visible = false;
@@ -6814,6 +6825,7 @@ local function avisoPericiafunc();
         end, obj);
 
     function obj:_releaseEvents()
+        __o_rrpgObjs.removeEventListenerById(self._e_event141);
         __o_rrpgObjs.removeEventListenerById(self._e_event140);
         __o_rrpgObjs.removeEventListenerById(self._e_event139);
         __o_rrpgObjs.removeEventListenerById(self._e_event138);

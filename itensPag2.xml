@@ -24,7 +24,15 @@ end;
             </event>
 	    </dataLink>
       </label>
-        <image src="/Imagens/layoutDinheiro.png" left="280" top="-2" width="213" height="56">
+        <image src="/Imagens/layoutDinheiro.png" hitTest="true" left="280" top="-2" width="213" height="56">
+                <event name="onClick">
+                        if rrpg.getMesaDe(sheet).meuJogador.isMestre then
+                        dialogs.inputQuery("Dinheiro inventario", "Quantas moedas quer adicionar?:", "",
+                           function (valorPreenchido)
+                              sheet.Soma = (sheet.Soma or 0) + valorPreenchido; 
+                    end);
+                        end;   
+                        </event>
         </image>
 
      

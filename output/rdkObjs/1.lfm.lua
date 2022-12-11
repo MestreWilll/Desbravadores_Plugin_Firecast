@@ -2441,35 +2441,38 @@ local function constructNew_frmDesbravadores23_svg()
     obj.botaodeUP:setWidth(28);
     obj.botaodeUP:setHeight(20);
 
- 
-            local function nivelvoltarfunc()
-            if Firecast.getMesaDe(sheet).meuJogador.isMestre and sheet.nivel > 0 then
-                sheet.nivel = sheet.nivel - 1
-            end
-        end
-        
-        local function nivelfunc()
-            if sheet.nivel >= 0 then
-                sheet.nivel = sheet.nivel + 1
-            end
-        end
-        
-        local function operadorNivelfunc()
-            if sheet.nivel == 1 then
-                sheet.Pontos2 = 19
-            elseif sheet.nivel == 2 then
-                sheet.Pontos2 = sheet.Pontos2 + 2
-            elseif sheet.nivel == 3 then
-                sheet.Pontos2 = sheet.Pontos2 + 2
-            elseif sheet.nivel == 4 then
-                sheet.Pontos2 = sheet.Pontos2 + 2
-            end
-        end
-                                       
-                                      
-                  
- 
-      
+    obj.dataLink3 = GUI.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink3:setParent(obj.scrollBox5);
+    obj.dataLink3:setField("nivel");
+    obj.dataLink3:setName("dataLink3");
+
+
+                local function nivelvoltarfunc()
+                   if Firecast.getMesaDe(sheet).meuJogador.isMestre then
+                      sheet.nivel = (sheet.nivel or 0) - 1
+                      end;
+                      end;
+                
+                      local function nivelfunc()
+                         if sheet.nivel >= 0 then
+                            sheet.nivel = sheet.nivel + 1
+                            end;
+                            end;
+                
+                            local function operadorNivelfunc()
+                               if sheet.nivel == 1 then
+                                  sheet.Pontos2 = (sheet.Pontos2 or 0) +3
+                               elseif sheet.nivel == 2 then
+                                  sheet.Pontos2 = (sheet.Pontos2 or 0) +3
+                               elseif sheet.nivel == 3 then
+                                  sheet.Pontos2 = (sheet.Pontos2 or 0) +3
+                               elseif sheet.nivel == 4 then
+                                  sheet.Pontos2 = (sheet.Pontos2 or 0) +3
+                               elseif sheet.nivel >= 5 then
+                                  sheet.Pontos2 = (sheet.Pontos2 or 0) +1
+                                  end;
+                                  end;
+                                  
 
 
     obj.botaon1 = GUI.fromHandle(_obj_newObject("image"));
@@ -2864,10 +2867,10 @@ local function constructNew_frmDesbravadores23_svg()
     obj.labSoma2:setHeight(45);
     obj.labSoma2:setName("labSoma2");
 
-    obj.dataLink3 = GUI.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink3:setParent(obj.labSoma2);
-    obj.dataLink3:setField("Soma");
-    obj.dataLink3:setName("dataLink3");
+    obj.dataLink4 = GUI.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink4:setParent(obj.labSoma2);
+    obj.dataLink4:setField("Soma");
+    obj.dataLink4:setName("dataLink4");
 
     obj.imageEdit = GUI.fromHandle(_obj_newObject("image"));
     obj.imageEdit:setParent(obj.scrollBox5);
@@ -2890,55 +2893,55 @@ local function constructNew_frmDesbravadores23_svg()
     obj.imageNivel:setWidth(76);
     obj.imageNivel:setHeight(26);
 
-    obj.dataLink4 = GUI.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink4:setParent(obj.scrollBox5);
-    obj.dataLink4:setFields({'parcela1', 'parcela2', 'parcela3', 'parcela4', 'parcela5', 'parcela52'});
-    obj.dataLink4:setName("dataLink4");
-
     obj.dataLink5 = GUI.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink5:setParent(obj.scrollBox5);
-    obj.dataLink5:setFields({'parcela6', 'parcela7', 'parcela8', 'parcela9', 'parcela10', 'parcela53'});
+    obj.dataLink5:setFields({'parcela1', 'parcela2', 'parcela3', 'parcela4', 'parcela5', 'parcela52'});
     obj.dataLink5:setName("dataLink5");
 
     obj.dataLink6 = GUI.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink6:setParent(obj.scrollBox5);
-    obj.dataLink6:setFields({'parcela11', 'parcela12', 'parcela13', 'parcela14', 'parcela15', 'parcela54'});
+    obj.dataLink6:setFields({'parcela6', 'parcela7', 'parcela8', 'parcela9', 'parcela10', 'parcela53'});
     obj.dataLink6:setName("dataLink6");
 
     obj.dataLink7 = GUI.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink7:setParent(obj.scrollBox5);
-    obj.dataLink7:setFields({'parcela16', 'parcela17', 'parcela18', 'parcela19', 'parcela20', 'parcela55'});
+    obj.dataLink7:setFields({'parcela11', 'parcela12', 'parcela13', 'parcela14', 'parcela15', 'parcela54'});
     obj.dataLink7:setName("dataLink7");
 
     obj.dataLink8 = GUI.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink8:setParent(obj.scrollBox5);
-    obj.dataLink8:setFields({'parcela21', 'parcela22', 'parcela23', 'parcela24', 'parcela25', 'parcela56'});
+    obj.dataLink8:setFields({'parcela16', 'parcela17', 'parcela18', 'parcela19', 'parcela20', 'parcela55'});
     obj.dataLink8:setName("dataLink8");
 
     obj.dataLink9 = GUI.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink9:setParent(obj.scrollBox5);
-    obj.dataLink9:setFields({'parcela26', 'parcela27', 'parcela28', 'parcela29', 'parcela30', 'parcela57'});
+    obj.dataLink9:setFields({'parcela21', 'parcela22', 'parcela23', 'parcela24', 'parcela25', 'parcela56'});
     obj.dataLink9:setName("dataLink9");
 
     obj.dataLink10 = GUI.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink10:setParent(obj.scrollBox5);
-    obj.dataLink10:setFields({'parcela31', 'parcela32', 'parcela33', 'parcela34', 'parcela35', 'parcela58'});
+    obj.dataLink10:setFields({'parcela26', 'parcela27', 'parcela28', 'parcela29', 'parcela30', 'parcela57'});
     obj.dataLink10:setName("dataLink10");
 
     obj.dataLink11 = GUI.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink11:setParent(obj.scrollBox5);
-    obj.dataLink11:setFields({'parcela36', 'parcela37', 'parcela38', 'parcela39', 'parcela40', 'parcela59'});
+    obj.dataLink11:setFields({'parcela31', 'parcela32', 'parcela33', 'parcela34', 'parcela35', 'parcela58'});
     obj.dataLink11:setName("dataLink11");
 
     obj.dataLink12 = GUI.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink12:setParent(obj.scrollBox5);
-    obj.dataLink12:setFields({'parcela41', 'parcela42', 'parcela43', 'parcela44', 'parcela45', 'parcela60'});
+    obj.dataLink12:setFields({'parcela36', 'parcela37', 'parcela38', 'parcela39', 'parcela40', 'parcela59'});
     obj.dataLink12:setName("dataLink12");
 
     obj.dataLink13 = GUI.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink13:setParent(obj.scrollBox5);
-    obj.dataLink13:setFields({'parcela46', 'parcela47', 'parcela48', 'parcela49', 'parcela50', 'parcela61'});
+    obj.dataLink13:setFields({'parcela41', 'parcela42', 'parcela43', 'parcela44', 'parcela45', 'parcela60'});
     obj.dataLink13:setName("dataLink13");
+
+    obj.dataLink14 = GUI.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink14:setParent(obj.scrollBox5);
+    obj.dataLink14:setFields({'parcela46', 'parcela47', 'parcela48', 'parcela49', 'parcela50', 'parcela61'});
+    obj.dataLink14:setName("dataLink14");
 
     obj._e_event0 = obj.dataLink1:addEventListener("onChange",
         function (_, field, oldValue, newValue)
@@ -3254,7 +3257,7 @@ local function constructNew_frmDesbravadores23_svg()
 
     obj._e_event33 = obj.botaodeUP:addEventListener("onClick",
         function (_)
-            nivelfunc();operadorNivelfunc();avisoPericiafunc();sheet.Pontos2 = (sheet.Pontos2 or 0) +1
+            nivelfunc();operadorNivelfunc();avisoPericiafunc();
         end, obj);
 
     obj._e_event34 = obj.botaon1:addEventListener("onClick",
@@ -3411,184 +3414,191 @@ local function constructNew_frmDesbravadores23_svg()
     obj._e_event46 = obj.image16:addEventListener("onClick",
         function (_)
             local Pontos2 = (sheet.Pontos2 or 0) -1;
-                    if Pontos2 >= 0 and (sheet.parcela6 or 0) > 0 then
-                                     sheet.Pontos2 = Pontos2; sheet.parcela6 = (sheet.parcela6 or 0) +1;
-                                                 else 
-                                      showMessage("CALMA CARA! Não tem mais nada aqui...")    
-                                 end;
+                                        if Pontos2 >= 0 then
+                                         sheet.Pontos2 = Pontos2; sheet.parcela6 = (sheet.parcela6 or 0) +1;
+                                                     else 
+                                          showMessage("CALMA CARA! Não tem mais nada aqui...")    
+                                     end;
         end, obj);
 
     obj._e_event47 = obj.image16:addEventListener("onMenu",
         function (_, x, y)
             local Pontos2 = (sheet.Pontos2 or 0) +1;
-                    if Pontos2 >= 0 and (sheet.parcela6 or 0) > 0 then
-                                     sheet.Pontos2 = Pontos2; sheet.parcela6 = (sheet.parcela6 or 0) -1;
-                                                 else 
-                                      showMessage("CALMA CARA! Não tem mais nada aqui...")    
-                                 end;
+            
+                                    if Pontos2 >= 0 and (sheet.parcela6 or 0) > 0 then
+                                 sheet.Pontos2 = Pontos2; sheet.parcela6 = (sheet.parcela6 or 0) -1;
+                                             else 
+                                  showMessage("Você não pode reduzir mais.")
+                                   end;
         end, obj);
 
     obj._e_event48 = obj.image17:addEventListener("onClick",
         function (_)
             local Pontos2 = (sheet.Pontos2 or 0) -1;
-                        if Pontos2 >= 0 and (sheet.parcela11 or 0) > 0 then
-                                         sheet.Pontos2 = Pontos2; sheet.parcela11 = (sheet.parcela11 or 0) +1;
-                                                     else 
-                                          showMessage("CALMA CARA! Não tem mais nada aqui...")    
-                                     end;
+                                            if Pontos2 >= 0 then
+                                             sheet.Pontos2 = Pontos2; sheet.parcela11 = (sheet.parcela11 or 0) +1;
+                                                         else 
+                                              showMessage("CALMA CARA! Não tem mais nada aqui...")    
+                                         end;
         end, obj);
 
     obj._e_event49 = obj.image17:addEventListener("onMenu",
         function (_, x, y)
             local Pontos2 = (sheet.Pontos2 or 0) +1;
-                        if Pontos2 >= 0 and (sheet.parcela11 or 0) > 0 then
-                                         sheet.Pontos2 = Pontos2; sheet.parcela11 = (sheet.parcela11 or 0) -1;
-                                                     else 
-                                          showMessage("CALMA CARA! Não tem mais nada aqui...")    
-                                     end;
+            
+                                        if Pontos2 >= 0 and (sheet.parcela11 or 0) > 0 then
+                                     sheet.Pontos2 = Pontos2; sheet.parcela11 = (sheet.parcela11 or 0) -1;
+                                                 else 
+                                      showMessage("Você não pode reduzir mais.")
+                                       end;
         end, obj);
 
     obj._e_event50 = obj.image18:addEventListener("onClick",
         function (_)
             local Pontos2 = (sheet.Pontos2 or 0) -1;
-                            if Pontos2 >= 0 and (sheet.parcela16 or 0) > 0 then
-                                             sheet.Pontos2 = Pontos2; sheet.parcela16 = (sheet.parcela16 or 0) +1;
-                                                         else 
-                                              showMessage("CALMA CARA! Não tem mais nada aqui...")    
-                                         end;
+                                                if Pontos2 >= 0 then
+                                                 sheet.Pontos2 = Pontos2; sheet.parcela16 = (sheet.parcela16 or 0) +1;
+                                                             else 
+                                                  showMessage("CALMA CARA! Não tem mais nada aqui...")    
+                                             end;
         end, obj);
 
     obj._e_event51 = obj.image18:addEventListener("onMenu",
         function (_, x, y)
             local Pontos2 = (sheet.Pontos2 or 0) +1;
-                            if Pontos2 >= 0 and (sheet.parcela16 or 0) > 0 then
-                                             sheet.Pontos2 = Pontos2; sheet.parcela16 = (sheet.parcela16 or 0) -1;
-                                                         else 
-                                              showMessage("CALMA CARA! Não tem mais nada aqui...")    
-                                         end;
+            
+                                            if Pontos2 >= 0 and (sheet.parcela16 or 0) > 0 then
+                                         sheet.Pontos2 = Pontos2; sheet.parcela16 = (sheet.parcela16 or 0) -1;
+                                                     else 
+                                          showMessage("Você não pode reduzir mais.")
+                                           end;
         end, obj);
 
     obj._e_event52 = obj.image19:addEventListener("onClick",
         function (_)
             local Pontos2 = (sheet.Pontos2 or 0) -1;
-                                if Pontos2 >= 0 and (sheet.parcela21 or 0) > 0 then
-                                                 sheet.Pontos2 = Pontos2; sheet.parcela21 = (sheet.parcela21 or 0) +1;
-                                                             else 
-                                                  showMessage("CALMA CARA! Não tem mais nada aqui...")    
-                                             end;
-        end, obj);
-
-    obj._e_event53 = obj.image19:addEventListener("onMenu",
-        function (_, x, y)
-            local Pontos2 = (sheet.Pontos2 or 0) +1;
-                                if Pontos2 >= 0 and (sheet.parcela21 or 0) > 0 then
-                                                 sheet.Pontos2 = Pontos2; sheet.parcela21 = (sheet.parcela21 or 0) -1;
-                                                             else 
-                                                  showMessage("CALMA CARA! Não tem mais nada aqui...")    
-                                             end;
-        end, obj);
-
-    obj._e_event54 = obj.image20:addEventListener("onClick",
-        function (_)
-            local Pontos2 = (sheet.Pontos2 or 0) -1;
-                                if Pontos2 >= 0 and (sheet.parcela26 or 0) > 0 then
-                                                 sheet.Pontos2 = Pontos2; sheet.parcela26 = (sheet.parcela26 or 0) +1;
-                                                             else 
-                                                  showMessage("CALMA CARA! Não tem mais nada aqui...")    
-                                             end;
-        end, obj);
-
-    obj._e_event55 = obj.image20:addEventListener("onMenu",
-        function (_, x, y)
-            local Pontos2 = (sheet.Pontos2 or 0) +1;
-                                if Pontos2 >= 0 and (sheet.parcela26 or 0) > 0 then
-                                                 sheet.Pontos2 = Pontos2; sheet.parcela26 = (sheet.parcela26 or 0) -1;
-                                                             else 
-                                                  showMessage("CALMA CARA! Não tem mais nada aqui...")    
-                                             end;
-        end, obj);
-
-    obj._e_event56 = obj.image21:addEventListener("onClick",
-        function (_)
-            local Pontos2 = (sheet.Pontos2 or 0) -1;
-                                if Pontos2 >= 0 and (sheet.parcela31 or 0) > 0 then
-                                                 sheet.Pontos2 = Pontos2; sheet.parcela31 = (sheet.parcela31 or 0) +1;
-                                                             else 
-                                                  showMessage("CALMA CARA! Não tem mais nada aqui...")    
-                                             end;
-        end, obj);
-
-    obj._e_event57 = obj.image21:addEventListener("onMenu",
-        function (_, x, y)
-            local Pontos2 = (sheet.Pontos2 or 0) +1;
-                                if Pontos2 >= 0 and (sheet.parcela31 or 0) > 0 then
-                                                 sheet.Pontos2 = Pontos2; sheet.parcela31 = (sheet.parcela31 or 0) -1;
-                                                             else 
-                                                  showMessage("CALMA CARA! Não tem mais nada aqui...")    
-                                             end;
-        end, obj);
-
-    obj._e_event58 = obj.image22:addEventListener("onClick",
-        function (_)
-            local Pontos2 = (sheet.Pontos2 or 0) -1;
-                                if Pontos2 >= 0 and (sheet.parcela36 or 0) > 0 then
-                                                 sheet.Pontos2 = Pontos2; sheet.parcela36 = (sheet.parcela36 or 0) +1;
-                                                             else 
-                                                  showMessage("CALMA CARA! Não tem mais nada aqui...")    
-                                             end;
-        end, obj);
-
-    obj._e_event59 = obj.image22:addEventListener("onMenu",
-        function (_, x, y)
-            local Pontos2 = (sheet.Pontos2 or 0) +1;
-                                if Pontos2 >= 0 and (sheet.parcela36 or 0) > 0 then
-                                                 sheet.Pontos2 = Pontos2; sheet.parcela36 = (sheet.parcela36 or 0) -1;
-                                                             else 
-                                                  showMessage("CALMA CARA! Não tem mais nada aqui...")    
-                                             end;
-        end, obj);
-
-    obj._e_event60 = obj.image23:addEventListener("onClick",
-        function (_)
-            local Pontos2 = (sheet.Pontos2 or 0) -1;
-                                    if Pontos2 >= 0 and (sheet.parcela41 or 0) > 0 then
-                                                    sheet.Pontos2 = Pontos2; sheet.parcela41 = (sheet.parcela41 or 0) +1;
-                                                                else 
-                                                    showMessage("CALMA CARA! Não tem mais nada aqui...")    
-                                                end;
-        end, obj);
-
-    obj._e_event61 = obj.image23:addEventListener("onMenu",
-        function (_, x, y)
-            local Pontos2 = (sheet.Pontos2 or 0) +1;
-                                    if Pontos2 >= 0 and (sheet.parcela41 or 0) > 0 then
-                                                     sheet.Pontos2 = Pontos2; sheet.parcela41 = (sheet.parcela41 or 0) -1;
+                                                    if Pontos2 >= 0 then
+                                                     sheet.Pontos2 = Pontos2; sheet.parcela21 = (sheet.parcela21 or 0) +1;
                                                                  else 
                                                       showMessage("CALMA CARA! Não tem mais nada aqui...")    
                                                  end;
         end, obj);
 
+    obj._e_event53 = obj.image19:addEventListener("onMenu",
+        function (_, x, y)
+            local Pontos2 = (sheet.Pontos2 or 0) +1;
+            
+                                                if Pontos2 >= 0 and (sheet.parcela21 or 0) > 0 then
+                                             sheet.Pontos2 = Pontos2; sheet.parcela21 = (sheet.parcela21 or 0) -1;
+                                                         else 
+                                              showMessage("Você não pode reduzir mais.")
+                                               end;
+        end, obj);
+
+    obj._e_event54 = obj.image20:addEventListener("onClick",
+        function (_)
+            local Pontos2 = (sheet.Pontos2 or 0) -1;
+                                                    if Pontos2 >= 0 then
+                                                     sheet.Pontos2 = Pontos2; sheet.parcela26 = (sheet.parcela26 or 0) +1;
+                                                                 else 
+                                                      showMessage("CALMA CARA! Não tem mais nada aqui...")    
+                                                 end;
+        end, obj);
+
+    obj._e_event55 = obj.image20:addEventListener("onMenu",
+        function (_, x, y)
+            local Pontos2 = (sheet.Pontos2 or 0) +1;
+            
+                                                if Pontos2 >= 0 and (sheet.parcela26 or 0) > 0 then
+                                             sheet.Pontos2 = Pontos2; sheet.parcela26 = (sheet.parcela26 or 0) -1;
+                                                         else 
+                                              showMessage("Você não pode reduzir mais.")
+                                               end;
+        end, obj);
+
+    obj._e_event56 = obj.image21:addEventListener("onClick",
+        function (_)
+            local Pontos2 = (sheet.Pontos2 or 0) -1;
+                                                    if Pontos2 >= 0 then
+                                                     sheet.Pontos2 = Pontos2; sheet.parcela31 = (sheet.parcela31 or 0) +1;
+                                                                 else 
+                                                      showMessage("CALMA CARA! Não tem mais nada aqui...")    
+                                                 end;
+        end, obj);
+
+    obj._e_event57 = obj.image21:addEventListener("onMenu",
+        function (_, x, y)
+            local Pontos2 = (sheet.Pontos2 or 0) +1;
+            
+                                                if Pontos2 >= 0 and (sheet.parcela31 or 0) > 0 then
+                                             sheet.Pontos2 = Pontos2; sheet.parcela31 = (sheet.parcela31 or 0) -1;
+                                                         else 
+                                              showMessage("Você não pode reduzir mais.")
+                                               end;
+        end, obj);
+
+    obj._e_event58 = obj.image22:addEventListener("onClick",
+        function (_)
+            local Pontos2 = (sheet.Pontos2 or 0) -1;
+                                                    if Pontos2 >= 0 then
+                                                     sheet.Pontos2 = Pontos2; sheet.parcela36 = (sheet.parcela36 or 0) +1;
+                                                                 else 
+                                                      showMessage("CALMA CARA! Não tem mais nada aqui...")    
+                                                 end;
+        end, obj);
+
+    obj._e_event59 = obj.image22:addEventListener("onMenu",
+        function (_, x, y)
+            local Pontos2 = (sheet.Pontos2 or 0) +1;
+            
+                                                if Pontos2 >= 0 and (sheet.parcela36 or 0) > 0 then
+                                             sheet.Pontos2 = Pontos2; sheet.parcela36 = (sheet.parcela36 or 0) -1;
+                                                         else 
+                                              showMessage("Você não pode reduzir mais.")
+                                               end;
+        end, obj);
+
+    obj._e_event60 = obj.image23:addEventListener("onClick",
+        function (_)
+            local Pontos2 = (sheet.Pontos2 or 0) -1;
+                                                    if Pontos2 >= 0 then
+                                                     sheet.Pontos2 = Pontos2; sheet.parcela41 = (sheet.parcela41 or 0) +1;
+                                                                 else 
+                                                      showMessage("CALMA CARA! Não tem mais nada aqui...")    
+                                                 end;
+        end, obj);
+
+    obj._e_event61 = obj.image23:addEventListener("onMenu",
+        function (_, x, y)
+            local Pontos2 = (sheet.Pontos2 or 0) +1;
+            
+                                                    if Pontos2 >= 0 and (sheet.parcela41 or 0) > 0 then
+                                                 sheet.Pontos2 = Pontos2; sheet.parcela41 = (sheet.parcela41 or 0) -1;
+                                                             else 
+                                                  showMessage("Você não pode reduzir mais.") end;
+        end, obj);
+
     obj._e_event62 = obj.image24:addEventListener("onClick",
         function (_)
             local Pontos2 = (sheet.Pontos2 or 0) -1;
-                                if Pontos2 >= 0 and (sheet.parcela46 or 0) > 0 then
-                        sheet.Pontos2 = Pontos2; sheet.parcela46 = (sheet.parcela46 or 0) +1;
-                                    else 
-                        showMessage("CALMA CARA! Não tem mais nada aqui...")    
-                    end;
+                                                    if Pontos2 >= 0 then
+                                                     sheet.Pontos2 = Pontos2; sheet.parcela46 = (sheet.parcela46 or 0) +1;
+                                                                 else 
+                                                      showMessage("CALMA CARA! Não tem mais nada aqui...")    
+                                                 end;
         end, obj);
 
     obj._e_event63 = obj.image24:addEventListener("onMenu",
         function (_, x, y)
             local Pontos2 = (sheet.Pontos2 or 0) +1;
-                                if Pontos2 >= 0 and (sheet.parcela46 or 0) > 0 then
-                         sheet.Pontos2 = Pontos2; sheet.parcela46 = (sheet.parcela46 or 0) -1;
-                                     else 
-                          showMessage("CALMA CARA! Não tem mais nada aqui...")    
-                     end;
+            
+                        if Pontos2 >= 0 and (sheet.parcela46 or 0) > 0 then
+                     sheet.Pontos2 = Pontos2; sheet.parcela46 = (sheet.parcela46 or 0) -1;
+                                 else 
+                      showMessage("Você não pode reduzir mais.") end;
         end, obj);
 
-    obj._e_event64 = obj.dataLink3:addEventListener("onChange",
+    obj._e_event64 = obj.dataLink4:addEventListener("onChange",
         function (_, field, oldValue, newValue)
             function format_thousand(v)
             local s = string.format("%d", math.floor(v))
@@ -3607,7 +3617,7 @@ local function constructNew_frmDesbravadores23_svg()
             imageNivelfunc();
         end, obj);
 
-    obj._e_event66 = obj.dataLink4:addEventListener("onChange",
+    obj._e_event66 = obj.dataLink5:addEventListener("onChange",
         function (_, field, oldValue, newValue)
             sheet.resultadoSoma = (tonumber(sheet.parcela1) or 0) +
             					                         (tonumber(sheet.parcela2) or 0) + 
@@ -3617,7 +3627,7 @@ local function constructNew_frmDesbravadores23_svg()
                                                         (tonumber(sheet.parcela52) or 0);
         end, obj);
 
-    obj._e_event67 = obj.dataLink5:addEventListener("onChange",
+    obj._e_event67 = obj.dataLink6:addEventListener("onChange",
         function (_, field, oldValue, newValue)
             sheet.resultadoSoma2 = (tonumber(sheet.parcela6) or 0) +
             					                         (tonumber(sheet.parcela7) or 0) + 
@@ -3627,7 +3637,7 @@ local function constructNew_frmDesbravadores23_svg()
                                                         (tonumber(sheet.parcela53) or 0);
         end, obj);
 
-    obj._e_event68 = obj.dataLink6:addEventListener("onChange",
+    obj._e_event68 = obj.dataLink7:addEventListener("onChange",
         function (_, field, oldValue, newValue)
             sheet.resultadoSoma3 = (tonumber(sheet.parcela11) or 0) +
             					                         (tonumber(sheet.parcela12) or 0) + 
@@ -3637,7 +3647,7 @@ local function constructNew_frmDesbravadores23_svg()
                                                         (tonumber(sheet.parcela54) or 0);
         end, obj);
 
-    obj._e_event69 = obj.dataLink7:addEventListener("onChange",
+    obj._e_event69 = obj.dataLink8:addEventListener("onChange",
         function (_, field, oldValue, newValue)
             sheet.resultadoSoma4 = (tonumber(sheet.parcela16) or 0) +
             					                         (tonumber(sheet.parcela17) or 0) + 
@@ -3647,7 +3657,7 @@ local function constructNew_frmDesbravadores23_svg()
                                                         (tonumber(sheet.parcela55) or 0);
         end, obj);
 
-    obj._e_event70 = obj.dataLink8:addEventListener("onChange",
+    obj._e_event70 = obj.dataLink9:addEventListener("onChange",
         function (_, field, oldValue, newValue)
             sheet.resultadoSoma5 = (tonumber(sheet.parcela21) or 0) +
             					                         (tonumber(sheet.parcela22) or 0) + 
@@ -3657,7 +3667,7 @@ local function constructNew_frmDesbravadores23_svg()
                                                         (tonumber(sheet.parcela56) or 0);
         end, obj);
 
-    obj._e_event71 = obj.dataLink9:addEventListener("onChange",
+    obj._e_event71 = obj.dataLink10:addEventListener("onChange",
         function (_, field, oldValue, newValue)
             sheet.resultadoSoma6 = (tonumber(sheet.parcela26) or 0) +
             					                         (tonumber(sheet.parcela27) or 0) + 
@@ -3667,7 +3677,7 @@ local function constructNew_frmDesbravadores23_svg()
                                                         (tonumber(sheet.parcela57) or 0);
         end, obj);
 
-    obj._e_event72 = obj.dataLink10:addEventListener("onChange",
+    obj._e_event72 = obj.dataLink11:addEventListener("onChange",
         function (_, field, oldValue, newValue)
             sheet.resultadoSoma7 = (tonumber(sheet.parcela31) or 0) +
             					                         (tonumber(sheet.parcela32) or 0) + 
@@ -3677,7 +3687,7 @@ local function constructNew_frmDesbravadores23_svg()
                                                         (tonumber(sheet.parcela58) or 0);
         end, obj);
 
-    obj._e_event73 = obj.dataLink11:addEventListener("onChange",
+    obj._e_event73 = obj.dataLink12:addEventListener("onChange",
         function (_, field, oldValue, newValue)
             sheet.resultadoSoma8 = (tonumber(sheet.parcela36) or 0) +
             					                         (tonumber(sheet.parcela37) or 0) + 
@@ -3687,7 +3697,7 @@ local function constructNew_frmDesbravadores23_svg()
                                                         (tonumber(sheet.parcela59) or 0);
         end, obj);
 
-    obj._e_event74 = obj.dataLink12:addEventListener("onChange",
+    obj._e_event74 = obj.dataLink13:addEventListener("onChange",
         function (_, field, oldValue, newValue)
             sheet.resultadoSoma9 = (tonumber(sheet.parcela41) or 0) +
             					                         (tonumber(sheet.parcela42) or 0) + 
@@ -3697,7 +3707,7 @@ local function constructNew_frmDesbravadores23_svg()
                                                         (tonumber(sheet.parcela60) or 0);
         end, obj);
 
-    obj._e_event75 = obj.dataLink13:addEventListener("onChange",
+    obj._e_event75 = obj.dataLink14:addEventListener("onChange",
         function (_, field, oldValue, newValue)
             sheet.resultadoSoma10 = (tonumber(sheet.parcela46) or 0) +
             					                         (tonumber(sheet.parcela47) or 0) + 
@@ -3988,6 +3998,7 @@ local function constructNew_frmDesbravadores23_svg()
         if self.Pag3 ~= nil then self.Pag3:destroy(); self.Pag3 = nil; end;
         if self.edit4 ~= nil then self.edit4:destroy(); self.edit4 = nil; end;
         if self.edit44 ~= nil then self.edit44:destroy(); self.edit44 = nil; end;
+        if self.dataLink14 ~= nil then self.dataLink14:destroy(); self.dataLink14 = nil; end;
         if self.label4 ~= nil then self.label4:destroy(); self.label4 = nil; end;
         if self.label6 ~= nil then self.label6:destroy(); self.label6 = nil; end;
         if self.suaversao ~= nil then self.suaversao:destroy(); self.suaversao = nil; end;

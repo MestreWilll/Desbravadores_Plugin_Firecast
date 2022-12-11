@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form name="frmDesbravadores23_svg" align="client">
 <!-- IMPORTES DOS ITENS MASCOTE E SKILL (Tive que deixa de fora do layout senão não aparece)-->
+
   <import file="itensPag2.xml"/>
   <import file="mascotePag3.xml"/>   
   <import file="skillPag1.xml"/>
+
 
  <layout name="fichaPrincipal" left="-30" top="-15" width="1263" height="893"  >
  <scrollBox align="client">
@@ -138,7 +140,7 @@ end;
 
         
         
-        <button name="botaodeUP" text="UP" fontColor="yellow" onMenu="nivelvoltarfunc(); " onCLick="nivelfunc();operadorNivelfunc();avisoPericiafunc();sheet.Pontos2 = (sheet.Pontos2 or 0) +1" fontStyle="bold"
+        <button name="botaodeUP" text="UP" fontColor="yellow" onMenu="nivelvoltarfunc(); " onCLick="nivelfunc();operadorNivelfunc();avisoPericiafunc();" fontStyle="bold"
         left="369" top="21" width="28" height="20"> 
         if Firecast.getMesaDe(sheet).meuJogador.isMestre then
           else 
@@ -148,35 +150,36 @@ end;
         </button>
         
         ---- Scripts dos atributos 
-        <script> 
-            local function nivelvoltarfunc()
-            if Firecast.getMesaDe(sheet).meuJogador.isMestre and sheet.nivel > 0 then
-                sheet.nivel = sheet.nivel - 1
-            end
-        end
-        
-        local function nivelfunc()
-            if sheet.nivel >= 0 then
-                sheet.nivel = sheet.nivel + 1
-            end
-        end
-        
-        local function operadorNivelfunc()
-            if sheet.nivel == 1 then
-                sheet.Pontos2 = 19
-            elseif sheet.nivel == 2 then
-                sheet.Pontos2 = sheet.Pontos2 + 2
-            elseif sheet.nivel == 3 then
-                sheet.Pontos2 = sheet.Pontos2 + 2
-            elseif sheet.nivel == 4 then
-                sheet.Pontos2 = sheet.Pontos2 + 2
-            end
-        end
-                                       
-                                      
-                  
- 
-      </script>
+        <dataLink field="nivel">
+
+            <script>
+                local function nivelvoltarfunc()
+                   if Firecast.getMesaDe(sheet).meuJogador.isMestre then
+                      sheet.nivel = (sheet.nivel or 0) - 1
+                      end;
+                      end;
+                
+                      local function nivelfunc()
+                         if sheet.nivel >= 0 then
+                            sheet.nivel = sheet.nivel + 1
+                            end;
+                            end;
+                
+                            local function operadorNivelfunc()
+                               if sheet.nivel == 1 then
+                                  sheet.Pontos2 = (sheet.Pontos2 or 0) +3
+                               elseif sheet.nivel == 2 then
+                                  sheet.Pontos2 = (sheet.Pontos2 or 0) +3
+                               elseif sheet.nivel == 3 then
+                                  sheet.Pontos2 = (sheet.Pontos2 or 0) +3
+                               elseif sheet.nivel == 4 then
+                                  sheet.Pontos2 = (sheet.Pontos2 or 0) +3
+                               elseif sheet.nivel >= 5 then
+                                  sheet.Pontos2 = (sheet.Pontos2 or 0) +1
+                                  end;
+                                  end;
+                                  </script>
+                                  </dataLink>
 
 
                 <image name="botaon1" src="/Imagens/imagemDoDado.png" style="autoFit"  hitTest="true" cursor="handPoint" left="342" top="318.50" width="36" height="48" >
@@ -370,22 +373,25 @@ left="517" top="320" width="40" height="40">
                         <event name="onClick"> 
                     
                         
-                        local Pontos2 = (sheet.Pontos2 or 0) -1;
-        if Pontos2 >= 0 and (sheet.parcela6 or 0) > 0 then
-                         sheet.Pontos2 = Pontos2; sheet.parcela6 = (sheet.parcela6 or 0) +1;
-                                     else 
-                          showMessage("CALMA CARA! Não tem mais nada aqui...")    
-                     end;			
+                            local Pontos2 = (sheet.Pontos2 or 0) -1;
+                            if Pontos2 >= 0 then
+                             sheet.Pontos2 = Pontos2; sheet.parcela6 = (sheet.parcela6 or 0) +1;
+                                         else 
+                              showMessage("CALMA CARA! Não tem mais nada aqui...")    
+                         end;			  
+                                
                     </event>   
 
                      <event name="onMenu">
                         local Pontos2 = (sheet.Pontos2 or 0) +1;
-        if Pontos2 >= 0 and (sheet.parcela6 or 0) > 0 then
-                         sheet.Pontos2 = Pontos2; sheet.parcela6 = (sheet.parcela6 or 0) -1;
-                                     else 
-                          showMessage("CALMA CARA! Não tem mais nada aqui...")    
-                     end;
-                    </event>                 
+
+                        if Pontos2 >= 0 and (sheet.parcela6 or 0) > 0 then
+                     sheet.Pontos2 = Pontos2; sheet.parcela6 = (sheet.parcela6 or 0) -1;
+                                 else 
+                      showMessage("Você não pode reduzir mais.")
+                       end;   
+
+                                    </event>                 
                                           
                 </image>
                 </edit> 
@@ -396,22 +402,24 @@ left="517" top="320" width="40" height="40">
                         left="532" top="423" width="25" height="40">
                         <image src="/Imagens/botaoAtributo.png" align="left" cursor="handPoint" hitTest="true" margins="{left=-25}" width="25" height="30">
                             <event name="onClick">
-                            local Pontos2 = (sheet.Pontos2 or 0) -1;
-            if Pontos2 >= 0 and (sheet.parcela11 or 0) > 0 then
-                             sheet.Pontos2 = Pontos2; sheet.parcela11 = (sheet.parcela11 or 0) +1;
-                                         else 
-                              showMessage("CALMA CARA! Não tem mais nada aqui...")    
-                         end;		
-                        </event> 
+                                local Pontos2 = (sheet.Pontos2 or 0) -1;
+                                if Pontos2 >= 0 then
+                                 sheet.Pontos2 = Pontos2; sheet.parcela11 = (sheet.parcela11 or 0) +1;
+                                             else 
+                                  showMessage("CALMA CARA! Não tem mais nada aqui...")    
+                             end;			  
+                                                    </event> 
 	
                          <event name="onMenu">
                             local Pontos2 = (sheet.Pontos2 or 0) +1;
-            if Pontos2 >= 0 and (sheet.parcela11 or 0) > 0 then
-                             sheet.Pontos2 = Pontos2; sheet.parcela11 = (sheet.parcela11 or 0) -1;
-                                         else 
-                              showMessage("CALMA CARA! Não tem mais nada aqui...")    
-                         end;
-                        </event>
+
+                            if Pontos2 >= 0 and (sheet.parcela11 or 0) > 0 then
+                         sheet.Pontos2 = Pontos2; sheet.parcela11 = (sheet.parcela11 or 0) -1;
+                                     else 
+                          showMessage("Você não pode reduzir mais.")
+                           end;  
+
+                                            </event>
                         </image>
                         </edit> 
 
@@ -421,22 +429,24 @@ left="517" top="320" width="40" height="40">
                                 <event name="onClick"> 
                             
                                 
-                                local Pontos2 = (sheet.Pontos2 or 0) -1;
-                if Pontos2 >= 0 and (sheet.parcela16 or 0) > 0 then
-                                 sheet.Pontos2 = Pontos2; sheet.parcela16 = (sheet.parcela16 or 0) +1;
-                                             else 
-                                  showMessage("CALMA CARA! Não tem mais nada aqui...")    
-                             end;		
-                            </event>                              
+                                    local Pontos2 = (sheet.Pontos2 or 0) -1;
+                                    if Pontos2 >= 0 then
+                                     sheet.Pontos2 = Pontos2; sheet.parcela16 = (sheet.parcela16 or 0) +1;
+                                                 else 
+                                      showMessage("CALMA CARA! Não tem mais nada aqui...")    
+                                 end;			  
+                                                            </event>                              
 	  
                             <event name="onMenu">
                                 local Pontos2 = (sheet.Pontos2 or 0) +1;
-                if Pontos2 >= 0 and (sheet.parcela16 or 0) > 0 then
-                                 sheet.Pontos2 = Pontos2; sheet.parcela16 = (sheet.parcela16 or 0) -1;
-                                             else 
-                                  showMessage("CALMA CARA! Não tem mais nada aqui...")    
-                             end;
-                            </event> 
+
+                                if Pontos2 >= 0 and (sheet.parcela16 or 0) > 0 then
+                             sheet.Pontos2 = Pontos2; sheet.parcela16 = (sheet.parcela16 or 0) -1;
+                                         else 
+                              showMessage("Você não pode reduzir mais.")
+                               end;  
+
+                                                    </event> 
                             </image>
                             </edit> 
 
@@ -446,21 +456,23 @@ left="517" top="320" width="40" height="40">
                                     <event name="onClick"> 
                                 
                                     
-                                    local Pontos2 = (sheet.Pontos2 or 0) -1;
-                    if Pontos2 >= 0 and (sheet.parcela21 or 0) > 0 then
-                                     sheet.Pontos2 = Pontos2; sheet.parcela21 = (sheet.parcela21 or 0) +1;
-                                                 else 
-                                      showMessage("CALMA CARA! Não tem mais nada aqui...")    
-                                 end;	
-                                </event> 
+                                        local Pontos2 = (sheet.Pontos2 or 0) -1;
+                                        if Pontos2 >= 0 then
+                                         sheet.Pontos2 = Pontos2; sheet.parcela21 = (sheet.parcela21 or 0) +1;
+                                                     else 
+                                          showMessage("CALMA CARA! Não tem mais nada aqui...")    
+                                     end;			  
+                                                                    </event> 
 		  
                                  <event name="onMenu">
                                     local Pontos2 = (sheet.Pontos2 or 0) +1;
-                    if Pontos2 >= 0 and (sheet.parcela21 or 0) > 0 then
-                                     sheet.Pontos2 = Pontos2; sheet.parcela21 = (sheet.parcela21 or 0) -1;
-                                                 else 
-                                      showMessage("CALMA CARA! Não tem mais nada aqui...")    
-                                 end;
+
+                                    if Pontos2 >= 0 and (sheet.parcela21 or 0) > 0 then
+                                 sheet.Pontos2 = Pontos2; sheet.parcela21 = (sheet.parcela21 or 0) -1;
+                                             else 
+                                  showMessage("Você não pode reduzir mais.")
+                                   end;    
+                            
                                 </event>                                   
                                 </image>
                                 </edit> 
@@ -470,21 +482,23 @@ left="517" top="320" width="40" height="40">
                                  <image src="/Imagens/botaoAtributo.png" align="left" cursor="handPoint" hitTest="true" margins="{left=-25}" width="25" height="30">
                                     <event name="onClick"> 
                                 
-                                    local Pontos2 = (sheet.Pontos2 or 0) -1;
-                    if Pontos2 >= 0 and (sheet.parcela26 or 0) > 0 then
-                                     sheet.Pontos2 = Pontos2; sheet.parcela26 = (sheet.parcela26 or 0) +1;
-                                                 else 
-                                      showMessage("CALMA CARA! Não tem mais nada aqui...")    
-                                 end;		
-                                </event> 
+                                        local Pontos2 = (sheet.Pontos2 or 0) -1;
+                                        if Pontos2 >= 0 then
+                                         sheet.Pontos2 = Pontos2; sheet.parcela26 = (sheet.parcela26 or 0) +1;
+                                                     else 
+                                          showMessage("CALMA CARA! Não tem mais nada aqui...")    
+                                     end;			  
+                                                                    </event> 
 	  
                                  <event name="onMenu">
                                     local Pontos2 = (sheet.Pontos2 or 0) +1;
-                    if Pontos2 >= 0 and (sheet.parcela26 or 0) > 0 then
-                                     sheet.Pontos2 = Pontos2; sheet.parcela26 = (sheet.parcela26 or 0) -1;
-                                                 else 
-                                      showMessage("CALMA CARA! Não tem mais nada aqui...")    
-                                 end;
+
+                                    if Pontos2 >= 0 and (sheet.parcela26 or 0) > 0 then
+                                 sheet.Pontos2 = Pontos2; sheet.parcela26 = (sheet.parcela26 or 0) -1;
+                                             else 
+                                  showMessage("Você não pode reduzir mais.")
+                                   end;    
+                            
                                 </event>                                          
                                 </image>
                                 </edit> 
@@ -495,21 +509,23 @@ left="517" top="320" width="40" height="40">
                                     <event name="onClick"> 
                                 
                                     
-                                    local Pontos2 = (sheet.Pontos2 or 0) -1;
-                    if Pontos2 >= 0 and (sheet.parcela31 or 0) > 0 then
-                                     sheet.Pontos2 = Pontos2; sheet.parcela31 = (sheet.parcela31 or 0) +1;
-                                                 else 
-                                      showMessage("CALMA CARA! Não tem mais nada aqui...")    
-                                 end;	
-                                </event> 
+                                        local Pontos2 = (sheet.Pontos2 or 0) -1;
+                                        if Pontos2 >= 0 then
+                                         sheet.Pontos2 = Pontos2; sheet.parcela31 = (sheet.parcela31 or 0) +1;
+                                                     else 
+                                          showMessage("CALMA CARA! Não tem mais nada aqui...")    
+                                     end;			  
+                                                                    </event> 
 		  
                                  <event name="onMenu">
                                     local Pontos2 = (sheet.Pontos2 or 0) +1;
-                    if Pontos2 >= 0 and (sheet.parcela31 or 0) > 0 then
-                                     sheet.Pontos2 = Pontos2; sheet.parcela31 = (sheet.parcela31 or 0) -1;
-                                                 else 
-                                      showMessage("CALMA CARA! Não tem mais nada aqui...")    
-                                 end;
+
+                                    if Pontos2 >= 0 and (sheet.parcela31 or 0) > 0 then
+                                 sheet.Pontos2 = Pontos2; sheet.parcela31 = (sheet.parcela31 or 0) -1;
+                                             else 
+                                  showMessage("Você não pode reduzir mais.")
+                                   end;    
+                            
                                 </event>                                   
                                 </image>
                                 </edit> 
@@ -520,21 +536,23 @@ left="517" top="320" width="40" height="40">
                                     <event name="onClick"> 
                                 
                                     
-                                    local Pontos2 = (sheet.Pontos2 or 0) -1;
-                    if Pontos2 >= 0 and (sheet.parcela36 or 0) > 0 then
-                                     sheet.Pontos2 = Pontos2; sheet.parcela36 = (sheet.parcela36 or 0) +1;
-                                                 else 
-                                      showMessage("CALMA CARA! Não tem mais nada aqui...")    
-                                 end;			  
-                                </event> 
+                                        local Pontos2 = (sheet.Pontos2 or 0) -1;
+                                        if Pontos2 >= 0 then
+                                         sheet.Pontos2 = Pontos2; sheet.parcela36 = (sheet.parcela36 or 0) +1;
+                                                     else 
+                                          showMessage("CALMA CARA! Não tem mais nada aqui...")    
+                                     end;			  
+                                                                    </event> 
 
                                  <event name="onMenu">
                                     local Pontos2 = (sheet.Pontos2 or 0) +1;
-                    if Pontos2 >= 0 and (sheet.parcela36 or 0) > 0 then
-                                     sheet.Pontos2 = Pontos2; sheet.parcela36 = (sheet.parcela36 or 0) -1;
-                                                 else 
-                                      showMessage("CALMA CARA! Não tem mais nada aqui...")    
-                                 end;
+
+                                    if Pontos2 >= 0 and (sheet.parcela36 or 0) > 0 then
+                                 sheet.Pontos2 = Pontos2; sheet.parcela36 = (sheet.parcela36 or 0) -1;
+                                             else 
+                                  showMessage("Você não pode reduzir mais.")
+                                   end;    
+                            
                                 </event>                                   
                                 </image>
                                 </edit> 
@@ -544,20 +562,21 @@ left="517" top="320" width="40" height="40">
                                 <image src="/Imagens/botaoAtributo.png" align="left" cursor="handPoint" hitTest="true" margins="{left=-25}" width="25" height="30">
                                     <event name="onClick"> 
                                         local Pontos2 = (sheet.Pontos2 or 0) -1;
-                        if Pontos2 >= 0 and (sheet.parcela41 or 0) > 0 then
-                                        sheet.Pontos2 = Pontos2; sheet.parcela41 = (sheet.parcela41 or 0) +1;
-                                                    else 
-                                        showMessage("CALMA CARA! Não tem mais nada aqui...")    
-                                    end;		
-                                </event> 
+                                        if Pontos2 >= 0 then
+                                         sheet.Pontos2 = Pontos2; sheet.parcela41 = (sheet.parcela41 or 0) +1;
+                                                     else 
+                                          showMessage("CALMA CARA! Não tem mais nada aqui...")    
+                                     end;			  
+                                                                    </event> 
 	  
                                     <event name="onMenu">
                                         local Pontos2 = (sheet.Pontos2 or 0) +1;
-                        if Pontos2 >= 0 and (sheet.parcela41 or 0) > 0 then
-                                         sheet.Pontos2 = Pontos2; sheet.parcela41 = (sheet.parcela41 or 0) -1;
-                                                     else 
-                                          showMessage("CALMA CARA! Não tem mais nada aqui...")    
-                                     end;
+
+                                        if Pontos2 >= 0 and (sheet.parcela41 or 0) > 0 then
+                                     sheet.Pontos2 = Pontos2; sheet.parcela41 = (sheet.parcela41 or 0) -1;
+                                                 else 
+                                      showMessage("Você não pode reduzir mais.") end;    
+                                
                                     </event>                                   
                                         </image>
                                         </edit> 
@@ -566,21 +585,22 @@ left="517" top="320" width="40" height="40">
 left="517" top="779" width="40" height="40">
     <image src="/Imagens/botaoAtributo.png" align="left" cursor="handPoint" hitTest="true" margins="{left=-25}" width="25" height="30">
         <event name="onClick"> 
-            local Pontos2 = (sheet.Pontos2 or 0) -1;
-                    if Pontos2 >= 0 and (sheet.parcela46 or 0) > 0 then
-            sheet.Pontos2 = Pontos2; sheet.parcela46 = (sheet.parcela46 or 0) +1;
-                        else 
-            showMessage("CALMA CARA! Não tem mais nada aqui...")    
-        end;		
-    </event> 
+                           local Pontos2 = (sheet.Pontos2 or 0) -1;
+                                        if Pontos2 >= 0 then
+                                         sheet.Pontos2 = Pontos2; sheet.parcela46 = (sheet.parcela46 or 0) +1;
+                                                     else 
+                                          showMessage("CALMA CARA! Não tem mais nada aqui...")    
+                                     end;			  
+            </event> 
 
         <event name="onMenu">
             local Pontos2 = (sheet.Pontos2 or 0) +1;
-                    if Pontos2 >= 0 and (sheet.parcela46 or 0) > 0 then
-             sheet.Pontos2 = Pontos2; sheet.parcela46 = (sheet.parcela46 or 0) -1;
-                         else 
-              showMessage("CALMA CARA! Não tem mais nada aqui...")    
-         end;
+
+            if Pontos2 >= 0 and (sheet.parcela46 or 0) > 0 then
+         sheet.Pontos2 = Pontos2; sheet.parcela46 = (sheet.parcela46 or 0) -1;
+                     else 
+          showMessage("Você não pode reduzir mais.") end;    
+    
         </event>       
 </image>
 </edit>

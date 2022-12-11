@@ -5266,25 +5266,25 @@ local function avisoPericiafunc();
     obj._e_event0 = obj.dataLink1:addEventListener("onChange",
         function (_, field, oldValue, newValue)
             function format_thousand(v)
-            	local s = string.format("%d", math.floor(v))
-            	local pos = string.len(s) % 3 
-            	if pos == 0 then pos = 3 end
-                return string.sub(s, 1, pos)
-            	    .. "" .. string.gsub(string.sub(s, pos+1), "(...)", ".%1") 
-            		.. "" .. string.sub(string.format("%.0f", v - math.floor(v)), 3) 
+               local s = string.format("%d", math.floor(v))
+               local pos = string.len(s) % 3
+               if pos == 0 then pos = 3 end
+               return string.sub(s, 1, pos)
+               .. "" .. string.gsub(string.sub(s, pos+1), "(...)", ".%1")
+               .. "" .. string.sub(string.format("%.0f", v - math.floor(v)), 3)
             
-            end;
-            	  self.labSoma3.text = '$' .. format_thousand(sheet.soma);
+               end;
+               self.labSoma3.text = '$' .. format_thousand(sheet.soma);
         end, obj);
 
     obj._e_event1 = obj.image1:addEventListener("onClick",
         function (_)
             if rrpg.getMesaDe(sheet).meuJogador.isMestre then
-                                    dialogs.inputQuery("Dinheiro inventario", "Quantas moedas quer adicionar?:", "",
-                                       function (valorPreenchido)
-                                          sheet.Soma = (sheet.Soma or 0) + valorPreenchido; 
-                                end);
-                                    end;
+                  dialogs.inputQuery("Dinheiro inventario", "Quantas moedas quer adicionar?:", "",
+                  function (valorPreenchido)
+                     sheet.Soma = (sheet.Soma or 0) + valorPreenchido;
+                     end);
+                     end;
         end, obj);
 
     obj._e_event2 = obj.troca:addEventListener("onMouseEnter",
@@ -5300,99 +5300,99 @@ local function avisoPericiafunc();
     obj._e_event4 = obj.troca:addEventListener("onClick",
         function (_)
             self.fichaPrincipal.visible = true
-                         self.Pag2.visible = false;
+                     self.Pag2.visible = false;
         end, obj);
 
     obj._e_event5 = obj.button1:addEventListener("onClick",
         function (_)
             -- Usuário clicou no botão de criar novo item.
-                                            -- Vamos inserir um novo item no nosso recordList                              
-                                            self.rclListaDosItens:append();
+                     -- Vamos inserir um novo item no nosso recordList
+                     self.rclListaDosItens:append();
         end, obj);
 
     obj._e_event6 = obj.rclListaDosItens:addEventListener("onSelect",
         function (_)
             --[[
-                                    Este evento é chamado quando o usuário selecionar/deselecionar itens da lista. Quando o usuário selecionar, vamos fazer nosso dataScopeBox (e todas as tag dentro dele) salvar e carregar dados no   objeto Nodo (NodeDatabase) do item selecionado.
+                     Este evento é chamado quando o usuário selecionar/deselecionar itens da lista. Quando o usuário selecionar, vamos fazer nosso dataScopeBox (e todas as tag dentro dele) salvar e carregar dados no   objeto Nodo (NodeDatabase) do item selecionado.
             
-                              --]]                      
-                              local node = self.rclListaDosItens.selectedNode;  
-                                     self.boxDetalhesDoItem.node = node;      
-            						 
-                              -- a caixa de detalhe só ficará visível se houver item selecionado
-                                      self.boxDetalhesDoItem.visible = (node ~= nil);
+                     --]]
+                     local node = self.rclListaDosItens.selectedNode;
+                     self.boxDetalhesDoItem.node = node;
+            
+                     -- a caixa de detalhe só ficará visível se houver item selecionado
+                     self.boxDetalhesDoItem.visible = (node ~= nil);
         end, obj);
 
     obj._e_event7 = obj.testeee:addEventListener("onClick",
         function (_)
             self.boxDetalhesDoItem.node.custo = (sheet.custo or 0) + 0;
-                    self.boxDetalhesDoItem.node.nivelItem = 0;
+                     self.boxDetalhesDoItem.node.nivelItem = 0;
         end, obj);
 
     obj._e_event8 = obj.label1:addEventListener("onClick",
         function (_)
             if rrpg.getMesaDe(sheet).meuJogador.isMestre then
-            		dialogs.inputQuery("Nivel do item", "Level:", "",
-            		   function (valorPreenchido)
-            		      self.boxDetalhesDoItem.node.nivelItem = (sheet.nivelItem or 0) + valorPreenchido; 
-            	    end);
-            		end;
+                        dialogs.inputQuery("Nivel do item", "Level:", "",
+                        function (valorPreenchido)
+                           self.boxDetalhesDoItem.node.nivelItem = (sheet.nivelItem or 0) + valorPreenchido;
+                           end);
+                           end;
         end, obj);
 
     obj._e_event9 = obj.dataLink2:addEventListener("onChange",
         function (_, field, oldValue, newValue)
             if self.boxDetalhesDoItem.node.nivelItem == 0 then
-                self.Venda.visible = false;
-                self.botaoDeVenda.visible = false;
-                self.colocarDinheiro.visible = false;
-                self.naoVende.visible = true;
-                self.dinheiro.visible = false;
-               end;
-              if self.boxDetalhesDoItem.node.nivelItem == 1 then
-              self.mercadoNegro.visible = false;
-              self.naoVende.visible = false;
-                  self.botaoDeVenda.visible = true;
-                self.Venda.visible = true;
-                self.botaoDeVenda.visible = true;
-                self.colocarDinheiro.visible = true;
-                self.dinheiro.visible = true;
-             end;
-              if self.boxDetalhesDoItem.node.nivelItem == 2 then
-              self.mercadoNegro.visible = false;
-              self.naoVende.visible = false;
-                  self.botaoDeVenda.visible = true;
-                self.Venda.visible = true;
-                self.botaoDeVenda.visible = true;
-                self.colocarDinheiro.visible = true;
-                self.dinheiro.visible = true;
-             end;
-              if self.boxDetalhesDoItem.node.nivelItem == 3 then
-              self.mercadoNegro.visible = true;
-                  self.botaoDeVenda.visible = false;
-                self.Venda.visible = false;
-                self.botaoDeVenda.visible = false;
-                self.colocarDinheiro.visible = false;
-                self.dinheiro.visible = false;
+                              self.Venda.visible = false;
+                              self.botaoDeVenda.visible = false;
+                              self.colocarDinheiro.visible = false;
+                              self.naoVende.visible = true;
+                              self.dinheiro.visible = false;
+                              end;
+                              if self.boxDetalhesDoItem.node.nivelItem == 1 then
+                                 self.mercadoNegro.visible = false;
+                                 self.naoVende.visible = false;
+                                 self.botaoDeVenda.visible = true;
+                                 self.Venda.visible = true;
+                                 self.botaoDeVenda.visible = true;
+                                 self.colocarDinheiro.visible = true;
+                                 self.dinheiro.visible = true;
+                                 end;
+                                 if self.boxDetalhesDoItem.node.nivelItem == 2 then
+                                    self.mercadoNegro.visible = false;
+                                    self.naoVende.visible = false;
+                                    self.botaoDeVenda.visible = true;
+                                    self.Venda.visible = true;
+                                    self.botaoDeVenda.visible = true;
+                                    self.colocarDinheiro.visible = true;
+                                    self.dinheiro.visible = true;
+                                    end;
+                                    if self.boxDetalhesDoItem.node.nivelItem == 3 then
+                                       self.mercadoNegro.visible = true;
+                                       self.botaoDeVenda.visible = false;
+                                       self.Venda.visible = false;
+                                       self.botaoDeVenda.visible = false;
+                                       self.colocarDinheiro.visible = false;
+                                       self.dinheiro.visible = false;
             
-              end;
+                                       end;
         end, obj);
 
     obj._e_event10 = obj.colocarDinheiro:addEventListener("onClick",
         function (_)
             if rrpg.getMesaDe(sheet).meuJogador.isMestre then
-            		dialogs.inputQuery("Caixa", "Quantidades:", "",
-            		   function (valorPreenchido)
-            		      self.boxDetalhesDoItem.node.custo = (sheet.custo or 0) + valorPreenchido; 
-            	    end);
-            		end;
+                                          dialogs.inputQuery("Caixa", "Quantidades:", "",
+                                          function (valorPreenchido)
+                                             self.boxDetalhesDoItem.node.custo = (sheet.custo or 0) + valorPreenchido;
+                                             end);
+                                             end;
         end, obj);
 
     obj._e_event11 = obj.botaoDeVenda:addEventListener("onClick",
         function (_)
             local custo = tonumber(sheet.custo) or 0;
-                local Soma = tonumber(sheet.Soma) or 0;
-                sheet.Soma = Soma + self.boxDetalhesDoItem.node.custo; 
-                custo = ndb.deleteNode(self.boxDetalhesDoItem.node);
+                                             local Soma = tonumber(sheet.Soma) or 0;
+                                             sheet.Soma = Soma + self.boxDetalhesDoItem.node.custo;
+                                             custo = ndb.deleteNode(self.boxDetalhesDoItem.node);
         end, obj);
 
     obj._e_event12 = obj.button2:addEventListener("onClick",

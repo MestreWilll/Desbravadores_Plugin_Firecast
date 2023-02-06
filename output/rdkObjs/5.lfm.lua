@@ -435,7 +435,7 @@ local function constructNew_frmLojaDePocoes()
     obj.label25:setFontSize(22.0);
     obj.label25:setWordWrap(false);
     lfm_setPropAsString(obj.label25, "fontStyle",  "bold");
-    obj.label25:setFontColor("Wheat  ");
+    obj.label25:setFontColor("Wheat");
     obj.label25:setName("label25");
 
     obj.label26 = GUI.fromHandle(_obj_newObject("label"));
@@ -1039,20 +1039,16 @@ local function constructNew_frmLojaDePocoes()
 
     obj._e_event20 = obj.dataLink1:addEventListener("onChange",
         function (_, field, oldValue, newValue)
-            -- função que formata um número como uma string de milhar
-            				local function format_thousand(v)
-            				  -- separa o valor de v em sua parte inteira e fracionária
-            				  local int, frac = math.modf(v)
-            				
-            				  -- converte o valor inteiro para string e insere os separadores de milhar
-            				  local s = tostring(int)
-            				  for i in s:gmatch('...') do
-            					s = s:gsub('...', '.%1', 1)
-            				  end
-            				
-            				  -- retorna a string formatada com separadores de milhar e a parte fracionária
-            				  return s .. string.sub(tostring(frac), 2)
-            				end
+            function format_thousand(v)
+            	local s = string.format("%d", math.floor(v))
+            	local pos = string.len(s) % 3 
+            	if pos == 0 then pos = 3 end
+                return string.sub(s, 1, pos)
+            	    .. "" .. string.gsub(string.sub(s, pos+1), "(...)", ".%1") 
+            		.. "" .. string.sub(string.format("%.0f", v - math.floor(v)), 3) 
+            
+            end;
+            	  self.labSoma.text = '$' .. format_thousand(sheet.soma);
         end, obj);
 
     obj._e_event21 = obj.QuantidadeTodos:addEventListener("onDblClick",

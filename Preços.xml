@@ -20,7 +20,7 @@
 <!-- AREA PARA QUANTIDADE -->
 
         <label top="-25" left="200" width="250" height="200"  
-		     fontSize="22.0" wordWrap="false" fontStyle="bold" fontColor="Wheat  " />
+		     fontSize="22.0" wordWrap="false" fontStyle="bold" fontColor="Wheat" />
 			 
 			 
 <!-- CREDITOS -->
